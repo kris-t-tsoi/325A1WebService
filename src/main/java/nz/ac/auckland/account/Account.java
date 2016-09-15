@@ -7,17 +7,19 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.ws.rs.GET;
 
 @Entity
 public class Account {
 	
 	@Id
-	@GeneratedValue
+	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private int accountNumber;
 	
 	private double balance;
-	private ForeignCurrency currency;
+//	private ForeignCurrency currency;
 	
+	@ManyToMany(mappedBy="userId", cascade = CascadeType.PERSIST)
 	private Set<User> accountOwners;
 	
 	public Account(double intialAmount, User owner) {
@@ -32,10 +34,22 @@ public class Account {
 	/**
 	 * @return balance of the account
 	 */
-	double checkBalance(){
+	double getBalance(){
 		return balance;
 	}
 	
+	public Set<User> getAccountOwners() {
+		return accountOwners;
+	}
+
+	public void setAccountOwners(Set<User> accountOwners) {
+		this.accountOwners = accountOwners;
+	}
+
+	public int getAccountNumber() {
+		return accountNumber;
+	}
+
 	/**
 	 * @return if account balance is in deficit
 	 */
