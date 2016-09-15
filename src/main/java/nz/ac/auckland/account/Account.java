@@ -3,6 +3,7 @@ import javax.xml.bind.annotation.*;
 
 import nz.ac.auckland.userDetail.User;
 
+import java.awt.List;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -10,6 +11,7 @@ import javax.persistence.*;
 import javax.ws.rs.GET;
 
 @Entity
+@Table(name="Accounts")
 public class Account {
 	
 	@Id
@@ -17,10 +19,13 @@ public class Account {
 	private int accountNumber;
 	
 	private double balance;
-//	private ForeignCurrency currency;
+	private String bankName;
 	
 	@ManyToMany(mappedBy="userId", cascade = CascadeType.PERSIST)
+//	@JoinColumns
 	private Set<User> accountOwners;
+	
+//	private List<>
 	
 	public Account(double intialAmount, User owner) {
 		//initalise Acccount Owner Set and add first owner
@@ -31,9 +36,8 @@ public class Account {
 		balance = intialAmount;		
 	}
 	
-	/**
-	 * @return balance of the account
-	 */
+	
+	
 	double getBalance(){
 		return balance;
 	}

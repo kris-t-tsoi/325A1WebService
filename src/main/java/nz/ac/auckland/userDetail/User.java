@@ -7,11 +7,13 @@ import javax.persistence.*;
 import nz.ac.auckland.account.*;
 
 @Entity
+@Table(name="Users")
 public class User {
 	
 //	@XmlID
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
+	@Column(name="userId")
 	private Long userId;
 	
 	
@@ -19,7 +21,10 @@ public class User {
 	private String lastName;
 	private String address;
 	private int contactNumber;
+	
+	@OneToOne
 	private UserAge ageDetails;
+	
 	private UserGender gender;
 	
 	@ManyToMany(mappedBy="accountNumber")
