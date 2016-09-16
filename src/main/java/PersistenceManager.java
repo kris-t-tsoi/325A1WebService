@@ -1,4 +1,4 @@
-package nz.ac.auckland.account;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
