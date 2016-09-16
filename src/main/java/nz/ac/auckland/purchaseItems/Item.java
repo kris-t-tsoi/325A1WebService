@@ -1,11 +1,10 @@
 package nz.ac.auckland.purchaseItems;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -26,6 +25,9 @@ public class Item {
 	@Column(name="PRICE", nullable=false)
 	private double price;
 	
+	@ManyToMany(mappedBy = "items")
+	private Set<Category> categories = new HashSet<Category>();
+	
 
 	public Long getId() {
 		return id;
@@ -35,8 +37,10 @@ public class Item {
 	}
 	public double getPrice() {
 		return price;
+	}	
+	public Set<Category> getCategories() {
+		return Collections.unmodifiableSet(categories);
 	}
-	
 	
 	@Override
 	public boolean equals(Object obj) {
@@ -45,10 +49,10 @@ public class Item {
         if (obj == this)
             return true;
 
-        Item rhs = (Item) obj;
+        Item itm = (Item) obj;
         return new EqualsBuilder().
-            append(id, rhs.getId()).
-            append(name, rhs.getName()).
+            append(id, itm.getId()).
+            append(name, itm.getName()).
             isEquals();
 	}
 	

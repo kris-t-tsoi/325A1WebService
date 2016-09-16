@@ -20,7 +20,7 @@
 	     
 	     www.h2database.com -->
 	     
-	<persistence-unit name="shopingPU">
+	<persistence-unit name="shoppingPU">
 		<!--  Classes which are to be mapped and therefore persistent. -->
 		<class>nz.ac.auckland.purchaseItems.Item</class>
 		<class>nz.ac.auckland.purchaseItems.Purchase</class>

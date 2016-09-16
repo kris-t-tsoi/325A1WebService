@@ -21,7 +21,7 @@ public class Purchase {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "USER_ID", nullable = false)
-	private long buyerID;
+	private User buyer;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	private Collection<Item> items = new ArrayList<Item>();
@@ -32,7 +32,7 @@ public class Purchase {
 	public Purchase() {}
 	
 	public Purchase(User buyer, ArrayList<Item> items) {
-		this.buyerID = buyer.getId();
+		this.buyer = buyer;
 		this.items = items;
 		
 		double cost = 0;		
@@ -47,8 +47,8 @@ public class Purchase {
 		return id;
 	}
 
-	public long getBuyerID() {
-		return buyerID;
+	public User getBuyer() {
+		return buyer;
 	}
 
 	public Collection<Item> getItems() {
@@ -70,7 +70,7 @@ public class Purchase {
         return new EqualsBuilder().
             append(id, rhs.getId()).
             append(items, rhs.getItems()).
-            append(buyerID, rhs.getBuyerID()).
+            append(buyer, rhs.getBuyer()).
             isEquals();
 	}
 	
@@ -80,7 +80,7 @@ public class Purchase {
 				append(getClass().getName()).
 	            append(id).
 	            append(items).
-	            append(buyerID).
+	            append(buyer).
 	            toHashCode();
 	}
 

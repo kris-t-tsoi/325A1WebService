@@ -1,4 +1,5 @@
 package nz.ac.auckland.userDetail;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -6,6 +7,8 @@ import javax.persistence.*;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import nz.ac.auckland.purchaseItems.Purchase;
 
 
 @Entity
@@ -17,7 +20,7 @@ public class User {
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private Long id;	
 	
-	@Column(name="USERNAME", nullable=false, length=20)
+	@Column(name="USERNAME", nullable=false, length=20, unique = true)
 	private String userName;
 	
 	@Column(name="FIRST_NAME", nullable=false)
@@ -51,6 +54,12 @@ public class User {
     })
 	private Address shippingAddress;
 	
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+    private CreditCardDetails CCDetails;
+	
+	@OneToMany(mappedBy = "buyer")
+    private Set<Purchase> purchases = new HashSet<Purchase>();
 	
 	
 	protected User(){}
@@ -104,9 +113,9 @@ public class User {
         if (obj == this)
             return true;
 
-        User rhs = (User) obj;
+        User usr = (User) obj;
         return new EqualsBuilder().
-            append(id, rhs.getId()).
+            append(id, usr.getId()).
             isEquals();
 	}
 	

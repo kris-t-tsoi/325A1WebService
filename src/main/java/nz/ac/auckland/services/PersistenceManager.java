@@ -1,3 +1,4 @@
+package nz.ac.auckland.services;
 
 
 import javax.persistence.EntityManager;
@@ -23,8 +24,8 @@ public class PersistenceManager {
 	
 	private EntityManagerFactory _entityManagerFactory;
 	
-	protected PersistenceManager() {
-		_entityManagerFactory = Persistence.createEntityManagerFactory("bankingPU");
+	public PersistenceManager() {
+		_entityManagerFactory = Persistence.createEntityManagerFactory("shoppingPU");
 	}
 	
 	public EntityManager createEntityManager() {
