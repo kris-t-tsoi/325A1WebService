@@ -22,9 +22,9 @@
 	     
 	<persistence-unit name="shopingPU">
 		<!--  Classes which are to be mapped and therefore persistent. -->
-<!-- 		<class>nz.ac.auckland.banking.Account</class>
+		<class>nz.ac.auckland.purchaseItems.Item</class>
+		<class>nz.ac.auckland.purchaseItems.Purchase</class>
 		<class>nz.ac.auckland.userDetail.User</class>
-		<class>nz.ac.auckland.transactions.Transaction</class> -->
 
 		<properties>
 			<!--  Configure the data source. In this case the embedded H2 database
