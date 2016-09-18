@@ -4,23 +4,28 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.*;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+@XmlRootElement(name="category")
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "CATEGORIES")
 public class Category {
 	
+	@XmlID
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CATEGORY_ID")
-	private long id;
+	private int id;
 	
+	@XmlElement(name="category-name")
 	@Column(name = "NAME", nullable = false)
 	private String name;
 	
-	
+	@XmlElement(name="items")
 	@ManyToMany(cascade = CascadeType.PERSIST)
 	@JoinTable(name = "CATEGORY_ITEM", joinColumns = @JoinColumn(name = "CATEGORY_ID"), inverseJoinColumns = @JoinColumn(name = "ITEM_ID"))
 	private Set<Item> items = new HashSet<Item>();

@@ -1,4 +1,4 @@
-package nz.ac.auckland.services;
+package nz.ac.auckland.userDetail;
 
 
 import javax.persistence.EntityManager;

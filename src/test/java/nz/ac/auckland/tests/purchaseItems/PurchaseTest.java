@@ -1,4 +1,4 @@
-package nz.ac.auckland.purchaseItems.test;
+package nz.ac.auckland.tests.purchaseItems;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;

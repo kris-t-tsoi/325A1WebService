@@ -4,29 +4,41 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import nz.ac.auckland.userDetail.User;
 
+
+@XmlRootElement(name="purchases")
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "PURCHASES")
 public class Purchase {
 	
+	@XmlID
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	@Column(name="PURCHASE_ID")
-	private long id;
+	private int id;
 	
+	@XmlElement(name="buyer")
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "USER_ID", nullable = false)
 	private User buyer;
 	
+	@XmlElement(name="items")
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
 	private Collection<Item> items = new ArrayList<Item>();
 	
-	private double totalAmount;
+	@XmlElement(name="total_cost")
+	private double totalCost;
 	
 	
 	public Purchase() {}
@@ -39,7 +51,7 @@ public class Purchase {
 		for(Item i :items){
 			cost = cost + i.getPrice();
 		}		
-		this.totalAmount = cost;
+		this.totalCost = cost;
 	}
 	
 	
@@ -55,8 +67,8 @@ public class Purchase {
 		return items;
 	}
 
-	public double getTotalAmount() {
-		return totalAmount;
+	public double getTotalCost() {
+		return totalCost;
 	}
 	
 	@Override

@@ -5,31 +5,37 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.*;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+@XmlRootElement(name="item")
+@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name="ITEMS")
 public class Item {
 
-	//	@XmlID
+	@XmlID
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	@Column(name="ITEM_ID")
-	private Long id;	
+	private int id;	
 	
+	@XmlElement(name="item_name")
 	@Column(name="ITEM_NAME", nullable=false, length=20)
 	private String name;
 	
+	@XmlElement(name="price")
 	@Column(name="PRICE", nullable=false)
 	private double price;
 	
+	@XmlElement(name="categories")
 	@ManyToMany(mappedBy = "items")
 	private Set<Category> categories = new HashSet<Category>();
 	
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 	public String getName() {

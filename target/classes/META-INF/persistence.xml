@@ -18,13 +18,20 @@
 	     
 	     Configuration of the embedded H2 database is covered on the H2 website:
 	     
-	     www.h2database.com -->
+	     www.h2database.com 
+	     
+	     http://localhost:10000/services/parolees
+	     
+	     -->
 	     
 	<persistence-unit name="shoppingPU">
 		<!--  Classes which are to be mapped and therefore persistent. -->
 		<class>nz.ac.auckland.purchaseItems.Item</class>
 		<class>nz.ac.auckland.purchaseItems.Purchase</class>
+		<class>nz.ac.auckland.purchaseItems.Category</class>
 		<class>nz.ac.auckland.userDetail.User</class>
+		<class>nz.ac.auckland.userDetail.CreditCardDetails</class>
+		
 
 		<properties>
 			<!--  Configure the data source. In this case the embedded H2 database

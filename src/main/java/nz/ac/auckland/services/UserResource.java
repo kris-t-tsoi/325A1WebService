@@ -35,101 +35,230 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
+import nz.ac.auckland.userDetail.User;
+
 /**
  * Class to implement a simple REST Web service for managing accounts.
  * 
- * ParoleeResource implements a WEB service with the following interface:
- * - GET    <base-uri>/parolees/{id}
- *          Retrieves a parolee based on their unique id. The format of the 
+ * UserResource implements a WEB service with the following interface:
+ * - GET    <base-uri>/user/{id}
+ *          Retrieves a user based on their unique id. The format of the 
  *          returned data is XML.
  *          
- * - GET    <base-uri>/parolees?start&size
- *          Retrieves a collection of parolees, where the "start" query 
+ * - GET    <base-uri>/user?start&size
+ *          Retrieves a collection of user, where the "start" query 
  *          parameter identifies an index position, and "size" represents the 
- *          max number of successive parolees to return. The format of the 
+ *          max number of successive user to return. The format of the 
  *          returned data is XML.
  *          
- * - POST   <base-uri>/parolees
- *          Creates a new Parolee. The HTTP post message contains an XML 
- *          representation of the parolee to be created.
+ * - POST   <base-uri>/user
+ *          Creates a new user. The HTTP post message contains an XML 
+ *          representation of the user to be created.
  *          
- * - PUT    <base-uri>/parolees/{id}
- *          Updates a parolee, identified by their id.The HTTP PUT message
- *          contains an XML document describing the new state of the parolee.
+ * - PUT    <base-uri>/user/{id}
+ *          Updates a user, identified by their id.The HTTP PUT message
+ *          contains an XML document describing the new state of the user.
  *          
- * - DELETE <base-uri>/parolees/{id}
- *          Deletes a parolee, identified by their unique id.
+ * - DELETE <base-uri>/user/{id}
+ *          Deletes a user, identified by their unique id.
  * 
  * @author Ian Warren
  *
  */
 
-@Path("/account")
-public class AccountsResource {
+@Path("/user")
+public class UserResource {
 	
 	//Set up Logger
-	private static Logger logger = LoggerFactory.getLogger(AccountsResource.class);
+	private static Logger logger = LoggerFactory.getLogger(UserResource.class);
+	
+	// Thread-safe data structure. This is necessary because a single
+	// ParoleeResource instance will be created and used to handle all incoming
+	// requests. The JAX-RS implementation uses a thread-per-request model and
+	// so concurrent requests will concurrently access the ParoleeResource 
+	// object.
+	private Map<Integer, User> userDB = new ConcurrentHashMap<Integer, User>();
+	private AtomicInteger _idCounter = new AtomicInteger();
+	
+	@GET
+	@Path("{id}")
+	@Produces("application/xml")
+	public StreamingOutput retrieveUserNames(@PathParam("id") int id) {
+		logger.info("Retrieving account with id: " + id);
+		final User user = userDB.get(id);
+		if(user == null){
+			// Return a HTTP 404 response if the specified Parolee isn't found.
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+		// Return a StreamingOuput instance that the JAX-RS implementation will
+				// use to set the body of the HTTP response message.
+				return new StreamingOutput() {
+					public void write(OutputStream outputStream) throws IOException,
+							WebApplicationException {
+						outputUserNames(outputStream, user);
+					}
+				};
+	}
 
-//	@GET
-//	@Path("{id}")
-//	@Produces("application/xml")
-//	public StreamingOutput retrieveAccount(@PathParam("id") int id) {
-//		logger.info("Retrieving account with id: " + id);
-//		// Lookup the Parolee within the in-memory data structure.
-//		final Account parolee = _paroleeDB.get(id);
-//		if (parolee == null) {
-//			// Return a HTTP 404 response if the specified Parolee isn't found.
-//			throw new WebApplicationException(Response.Status.NOT_FOUND);
-//		}
-//	}
+	
+	
+	/**
+	 * Helper method to generate an XML representation of a particular user.
+	 * 
+	 * @param os the OutputStream used to write out the XML.
+	 * 
+	 * @param parolee the user for which to generate an XML representation.
+	 * 
+	 * @throws IOException if an error is encountered in writing the XML to the 
+	 * OutputStream.
+	 */
+	protected void outputUserNames(OutputStream os, User user)
+			throws IOException {
+		PrintStream writer = new PrintStream(os);
+		writer.println("<parolee id=\"" + user.getId() + "\">");
+		writer.println("   <user-name>" + user.getUserName()
+		+ "</user-name>");
+		writer.println("   <first-name>" + user.getFirstName()
+				+ "</first-name>");
+		writer.println("   <last-name>" + user.getLastName()
+				+ "</last-name>");
+		writer.println("   <last-name>" + user.getLastName()
+		+ "</last-name>");
+		writer.println("</parolee>");
+	}
+	
+	/**
+	 * Helper method to read an XML representation of a user, and return a
+	 * corresponding user object. 
+	 * 
+	 * @param is the InputStream containing an XML representation of the 
+	 *        user to create.
+	 *        
+	 * @return a new user object.
+	 */
+	protected User readUser(InputStream is) {
+		try {
+			DocumentBuilder builder = DocumentBuilderFactory.newInstance()
+					.newDocumentBuilder();
+			Document doc = builder.parse(is);
+			Element root = doc.getDocumentElement();
+
+			User user = new User();
+			if (root.getAttribute("id") != null
+					&& !root.getAttribute("id").trim().equals(""))
+				user.setId(Integer.valueOf(root.getAttribute("id")));
+			NodeList nodes = root.getChildNodes();
+			for (int i = 0; i < nodes.getLength(); i++) {
+				Element element = (Element) nodes.item(i);
+				if (element.getTagName().equals("user-name")) {
+					user.setUserName(element.getTextContent());
+				} else if (element.getTagName().equals("first-name")) {
+					user.setFirstName(element.getTextContent());
+				} else if (element.getTagName().equals("last-name")) {
+					user.setLastName(element.getTextContent());
+				} 
+			}
+			return user;
+		} catch (Exception e) {
+			throw new WebApplicationException(e, Response.Status.BAD_REQUEST);
+		}
+	}
+	
+	/**
+	 * Creates a new user.
+	 * 
+	 * @param is the Inputstream that contains an XML representation of the
+	 * user to be created.
+	 * 
+	 * @return a Response object that includes the HTTP "Location" header,
+	 *         whose value is the URI of the newly created resource. The HTTP 
+	 *         response code is 201. The JAX-RS run-time processes the Response
+	 *         object when preparing the HTTP response message.
+	 */
+	@POST
+	@Produces("application/xml")
+	public Response createUser(InputStream is) {
+		User user = readUser(is);
+
+		user.setId(_idCounter.incrementAndGet());
+		userDB.put(user.getId(), user);
+
+		logger.debug("Created parolee with id: " + user.getId());
+
+		return Response.created(URI.create("/parolees/" + user.getId()))
+				.build();
+	}
+
+	/**
+	 * Attempts to update an existing user. If the specified user is
+	 * found it is updated, resulting in a HTTP 204 response being returned to 
+	 * the consumer. In other cases, a 404 response is returned.
+	 * 
+	 * @param id the unique id of the user to update.
+	 * 
+	 * @param is the InputStream used to store an XML representation of the
+	 * new state for the user.
+	 */
+	@PUT
+	@Path("{id}")
+	@Consumes("application/xml")
+	public void updateUser(@PathParam("id") int id, InputStream is) {
+		User update = readUser(is);
+		User current = userDB.get(id);
+		if (current == null) {
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+
+		// Update the details of the Parolee to be updated.
+		current.setFirstName(update.getFirstName());
+		current.setLastName(update.getLastName());
+		current.setUserName(update.getUserName());
+	}
+
+	/**
+	 * Attempts to delete an existing parolee. If the specified parolee isn't 
+	 * found, a 404 response is returned to the consumer. In other cases, a 204
+	 * response is returned after deleting the parolee.
+	 * 
+	 * @param id the unique id of the parolee to delete.
+	 */
+	@DELETE
+	@Path("{id}")
+	public void deleteUser(@PathParam("id") int id) {
+		User current = userDB.get(id);
+		if (current == null) {
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}
+
+		// Remove the Parolee.
+		userDB.remove(id);
+		logger.info("Deleted parolee with ID: " + id);
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 
-//	@Path("/parolees")
-//		// Setup a Logger.
-//		private static Logger _logger = LoggerFactory
-//				.getLogger(ParoleeResource.class);
-//
-//		// Thread-safe data structure. This is necessary because a single
-//		// ParoleeResource instance will be created and used to handle all incoming
-//		// requests. The JAX-RS implementation uses a thread-per-request model and
-//		// so concurrent requests will concurrently access the ParoleeResource 
-//		// object.
-//		private Map<Integer, Parolee> _paroleeDB = new ConcurrentHashMap<Integer, Parolee>();
-//		private AtomicInteger _idCounter = new AtomicInteger();
-//
-//		/**
-//		 * Attempts to retrieve a particular parolee based on their unique id. If 
-//		 * the required parolee is found, this method returns a 200 response along 
-//		 * with an XML representation of the parolee. In other cases, this method 
-//		 * returns a 404 response.
-//		 *  
-//		 * @param id the unique id of the parolee to be returned.
-//		 * 
-//		 * @return a StreamingOutput object that writes out the parolee state in 
-//		 *         XML form.
-//		 */
-//		@GET
-//		@Path("{id}")
-//		@Produces("application/xml")
-//		public StreamingOutput retrieveParolee(@PathParam("id") int id) {
-//			_logger.info("Retrieving parolee with id: " + id);
-//			// Lookup the Parolee within the in-memory data structure.
-//			final Parolee parolee = _paroleeDB.get(id);
-//			if (parolee == null) {
-//				// Return a HTTP 404 response if the specified Parolee isn't found.
-//				throw new WebApplicationException(Response.Status.NOT_FOUND);
-//			}
-//
-//			// Return a StreamingOuput instance that the JAX-RS implementation will
-//			// use to set the body of the HTTP response message.
-//			return new StreamingOutput() {
-//				public void write(OutputStream outputStream) throws IOException,
-//						WebApplicationException {
-//					outputParolee(outputStream, parolee);
-//				}
-//			};
-//		}
-//
+
 //		/**
 //		 * Attempts to retrieve a collection of parolees. 
 //		 * 

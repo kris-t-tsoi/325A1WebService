@@ -3,35 +3,42 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.*;
-//import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.*;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import nz.ac.auckland.purchaseItems.Purchase;
 
-
+@XmlRootElement(name="user")
 @Entity
 @Table(name="USERS")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class User {
 	
-//	@XmlID
+	@XmlID
+	@XmlAttribute(name="id")
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
-	private Long id;	
+	private int id;	
 	
+	@XmlElement(name="user-name")
 	@Column(name="USERNAME", nullable=false, length=20, unique = true)
 	private String userName;
 	
+	@XmlElement(name="first-name")
 	@Column(name="FIRST_NAME", nullable=false)
 	private String firstName;
 	
+	@XmlElement(name="last-name")
 	@Column(name="LAST_NAME", nullable=false)
 	private String lastName;
 
-	
+	@XmlElement(name="billing-address")
 	@AttributeOverrides( {
-    	@AttributeOverride(name="street",
+//		@AttributeOverride(name="street-number",
+//    			column=@Column(name="BILLING_STREET_NUMBER", nullable=false)),
+		@AttributeOverride(name="street",
     			column=@Column(name="BILLING_STREET", nullable=false)),
     	@AttributeOverride(name="city",
     			column=@Column(name="BILLING_CITY", nullable=false)),
@@ -42,8 +49,11 @@ public class User {
     })
 	private Address billingAddress;
 	
+	@XmlElement(name="shipping-address")
 	@AttributeOverrides( {
-    	@AttributeOverride(name="street",
+//		@AttributeOverride(name="street-number",
+//    			column=@Column(name="SHIPPING_STREET_NUMBER", nullable=false)),
+		@AttributeOverride(name="street",
     			column=@Column(name="SHIPPING_STREET", nullable=false)),
     	@AttributeOverride(name="city",
     			column=@Column(name="SHIPPING_CITY", nullable=false)),
@@ -54,16 +64,33 @@ public class User {
     })
 	private Address shippingAddress;
 	
-	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@XmlElement(name="creditcard-details")
+	@OneToOne(cascade=CascadeType.ALL)
     private CreditCardDetails CCDetails;
 	
+	@XmlElement(name="purchases")
 	@OneToMany(mappedBy = "buyer")
     private Set<Purchase> purchases = new HashSet<Purchase>();
 	
 	
-	protected User(){}
+	public User(){}
 	
+	public CreditCardDetails getCCDetails() {
+		return CCDetails;
+	}
+
+	public void changeCCDetails(CreditCardDetails cCDetails) {
+		CCDetails = cCDetails;
+	}
+	
+	public void deleteCCDetails(){
+		CCDetails = null;
+	}
+
+	public Set<Purchase> getPurchases() {
+		return purchases;
+	}
+
 	public User(String username, String lastName, String firstName){
 		this.userName = username;
 		this.lastName = lastName;
@@ -74,7 +101,7 @@ public class User {
 		return billingAddress;
 	}
 
-	public void setBillingAddress(Address billingAddress) {
+	public void changeBillingAddress(Address billingAddress) {
 		this.billingAddress = billingAddress;
 	}
 
@@ -82,11 +109,11 @@ public class User {
 		return shippingAddress;
 	}
 
-	public void setShippingAddress(Address shippingAddress) {
+	public void changeShippingAddress(Address shippingAddress) {
 		this.shippingAddress = shippingAddress;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -128,6 +155,22 @@ public class User {
 				append(getClass().getName()).
 	            append(id).
 	            toHashCode();
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 	
 	
