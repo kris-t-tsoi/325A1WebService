@@ -36,8 +36,6 @@ public class User {
 
 	@XmlElement(name="billing-address")
 	@AttributeOverrides( {
-//		@AttributeOverride(name="street-number",
-//    			column=@Column(name="BILLING_STREET_NUMBER", nullable=false)),
 		@AttributeOverride(name="street",
     			column=@Column(name="BILLING_STREET", nullable=false)),
     	@AttributeOverride(name="city",
@@ -51,8 +49,6 @@ public class User {
 	
 	@XmlElement(name="shipping-address")
 	@AttributeOverrides( {
-//		@AttributeOverride(name="street-number",
-//    			column=@Column(name="SHIPPING_STREET_NUMBER", nullable=false)),
 		@AttributeOverride(name="street",
     			column=@Column(name="SHIPPING_STREET", nullable=false)),
     	@AttributeOverride(name="city",
@@ -68,9 +64,9 @@ public class User {
 	@OneToOne(cascade=CascadeType.ALL)
     private CreditCardDetails CCDetails;
 	
-	@XmlElement(name="purchases")
+	@XmlElement(name="purchase-history")
 	@OneToMany(mappedBy = "buyer")
-    private Set<Purchase> purchases = new HashSet<Purchase>();
+    private Set<Purchase> purchaseHistory = new HashSet<Purchase>();
 	
 	
 	public User(){}
@@ -87,8 +83,12 @@ public class User {
 		CCDetails = null;
 	}
 
-	public Set<Purchase> getPurchases() {
-		return purchases;
+	public Set<Purchase> getPurchaseHistory() {
+		return purchaseHistory;
+	}
+	
+	public void addPurchase(Purchase purch){
+		purchaseHistory.add(purch);
 	}
 
 	public User(String username, String lastName, String firstName){

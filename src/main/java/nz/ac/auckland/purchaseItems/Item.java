@@ -31,7 +31,7 @@ public class Item {
 	private double price;
 	
 	@XmlElement(name="categories")
-	@ManyToMany(mappedBy = "items")
+	@OneToMany
 	private Set<Category> categories = new HashSet<Category>();
 	
 
@@ -46,6 +46,14 @@ public class Item {
 	}	
 	public Set<Category> getCategories() {
 		return Collections.unmodifiableSet(categories);
+	}
+	
+	public void addCategory(Category category){
+		categories.add(category);
+	}
+	
+	public void removeCategory (Category category){
+		categories.remove(category);
 	}
 	
 	@Override

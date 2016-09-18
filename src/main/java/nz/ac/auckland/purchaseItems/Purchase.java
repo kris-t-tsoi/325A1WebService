@@ -71,6 +71,14 @@ public class Purchase {
 		return totalCost;
 	}
 	
+	public void addItem(Item i){
+		items.add(i);
+	}
+	
+	public void removeItem(Item i){
+		items.remove(i);
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Purchase))

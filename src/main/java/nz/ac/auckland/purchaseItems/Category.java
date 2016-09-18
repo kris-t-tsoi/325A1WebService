@@ -25,10 +25,6 @@ public class Category {
 	@Column(name = "NAME", nullable = false)
 	private String name;
 	
-	@XmlElement(name="items")
-	@ManyToMany(cascade = CascadeType.PERSIST)
-	@JoinTable(name = "CATEGORY_ITEM", joinColumns = @JoinColumn(name = "CATEGORY_ID"), inverseJoinColumns = @JoinColumn(name = "ITEM_ID"))
-	private Set<Item> items = new HashSet<Item>();
 	
 	// Required by JPA.
 	protected Category() {
@@ -38,11 +34,6 @@ public class Category {
 		this.name = name;
 	}
 
-	public void addItem(Item item) {
-		this.items.add(item);
-	}
-
-	
 	public long getId() {
 		return id;
 	}
@@ -51,11 +42,7 @@ public class Category {
 		return name;
 	}
 
-	public Set<Item> getItems() {
-		return items;
-	}
-	
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Item))
