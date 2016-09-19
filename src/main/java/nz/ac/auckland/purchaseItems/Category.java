@@ -9,19 +9,15 @@ import javax.xml.bind.annotation.*;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
-@XmlRootElement(name="category")
-@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name = "CATEGORIES")
 public class Category {
 	
-	@XmlID
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "CATEGORY_ID")
 	private int id;
 	
-	@XmlElement(name="category-name")
 	@Column(name = "NAME", nullable = false)
 	private String name;
 	

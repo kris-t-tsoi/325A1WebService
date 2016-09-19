@@ -60,6 +60,22 @@ public class Address {
 		return postcode;
 	}
 	
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public void setPostcode(int postcode) {
+		this.postcode = postcode;
+	}
+
 	public void ChangeAddress (/*String srtNum,*/String street, String city, String country, int postcode){
 //		this.streetNumber = srtNum;
 		this.street = street;

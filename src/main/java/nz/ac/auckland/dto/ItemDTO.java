@@ -1,42 +1,54 @@
-package nz.ac.auckland.purchaseItems;
+package nz.ac.auckland.dto;
 
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.*;
-import javax.xml.bind.annotation.*;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlID;
+import javax.xml.bind.annotation.XmlRootElement;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import nz.ac.auckland.purchaseItems.Category;
+import nz.ac.auckland.purchaseItems.Item;
+import nz.ac.auckland.userDetail.Address;
+import nz.ac.auckland.userDetail.CreditCardDetails;
 
-@Entity
-@Table(name="ITEMS")
-public class Item {
+@XmlRootElement(name="item")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ItemDTO {
 
-	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY )
-	@Column(name="ITEM_ID")
+	@XmlID
 	private int id;	
 	
-	@Column(name="ITEM_NAME", nullable=false, length=20)
+	@XmlElement(name="item_name")
 	private String name;
 	
-	@Column(name="PRICE", nullable=false)
+	@XmlElement(name="price")
 	private double price;
 	
-	@OneToMany
+	@XmlElement(name="categories")
 	private Set<Category> categories = new HashSet<Category>();
 	
-	private Item() {}
+	public ItemDTO(String name, double price){
+		this(0,name,price);
+	}
 	
-	public Item(String name, double price) {
+	public ItemDTO(int id, String name, double price){
+		this.id = id;
 		this.name = name;
 		this.price = price;
 	}
 	
-
 	public int getId() {
 		return id;
 	}
@@ -58,7 +70,6 @@ public class Item {
 		categories.remove(category);
 	}
 	
-
 	@Override
 	public boolean equals(Object obj) {
 		if (!(obj instanceof Item))

@@ -16,59 +16,54 @@ import nz.ac.auckland.purchaseItems.Purchase;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class User {
 	
-	@XmlID
-	@XmlAttribute(name="id")
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	private int id;	
 	
-	@XmlElement(name="user-name")
 	@Column(name="USERNAME", nullable=false, length=20, unique = true)
 	private String userName;
 	
-	@XmlElement(name="first-name")
 	@Column(name="FIRST_NAME", nullable=false)
 	private String firstName;
 	
-	@XmlElement(name="last-name")
 	@Column(name="LAST_NAME", nullable=false)
 	private String lastName;
 
-	@XmlElement(name="billing-address")
 	@AttributeOverrides( {
 		@AttributeOverride(name="street",
-    			column=@Column(name="BILLING_STREET", nullable=false)),
+    			column=@Column(name="BILLING_STREET")),
     	@AttributeOverride(name="city",
-    			column=@Column(name="BILLING_CITY", nullable=false)),
+    			column=@Column(name="BILLING_CITY")),
     	@AttributeOverride(name="country",
-			column=@Column(name="BILLING_COUNTRY", nullable=false)),
+			column=@Column(name="BILLING_COUNTRY")),
     	@AttributeOverride(name="postcode",
     			column=@Column(name="BILLING_POST_CODE")),
     })
 	private Address billingAddress;
 	
-	@XmlElement(name="shipping-address")
 	@AttributeOverrides( {
 		@AttributeOverride(name="street",
-    			column=@Column(name="SHIPPING_STREET", nullable=false)),
+    			column=@Column(name="SHIPPING_STREET")),
     	@AttributeOverride(name="city",
-    			column=@Column(name="SHIPPING_CITY", nullable=false)),
+    			column=@Column(name="SHIPPING_CITY")),
     	@AttributeOverride(name="country",
-			column=@Column(name="SHIPPING_COUNTRY", nullable=false)),		
+			column=@Column(name="SHIPPING_COUNTRY")),		
     	@AttributeOverride(name="postcode",
     			column=@Column(name="SHIPPING_POST_CODE")),
     })
 	private Address shippingAddress;
 	
-	@XmlElement(name="creditcard-details")
 	@OneToOne(cascade=CascadeType.ALL)
     private CreditCardDetails CCDetails;
 	
-	@XmlElement(name="purchase-history")
 	@OneToMany(mappedBy = "buyer")
     private Set<Purchase> purchaseHistory = new HashSet<Purchase>();
 	
-	
+
+	public void setPurchaseHistory(Set<Purchase> purchaseHistory) {
+		this.purchaseHistory = purchaseHistory;
+	}
+
 	public User(){}
 	
 	public CreditCardDetails getCCDetails() {
@@ -83,6 +78,7 @@ public class User {
 		CCDetails = null;
 	}
 
+	
 	public Set<Purchase> getPurchaseHistory() {
 		return purchaseHistory;
 	}
@@ -91,10 +87,18 @@ public class User {
 		purchaseHistory.add(purch);
 	}
 
-	public User(String username, String lastName, String firstName){
+	public User(int id,String username, String lastName, String firstName,Address billing, Address shipping, CreditCardDetails ccd){
+		this.id = id;
 		this.userName = username;
 		this.lastName = lastName;
 		this.firstName = firstName;
+		this.billingAddress = billing;
+		this.shippingAddress = shipping;
+		this.CCDetails = ccd;
+	}
+	
+	public User(String username, String lastName, String firstName,Address billing, Address shipping, CreditCardDetails ccd){
+		this(0,username,lastName,firstName,billing,shipping,ccd);
 	}
 
 	public Address getBillingAddress() {

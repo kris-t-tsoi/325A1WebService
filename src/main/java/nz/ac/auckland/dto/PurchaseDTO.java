@@ -1,9 +1,17 @@
-package nz.ac.auckland.purchaseItems;
+package nz.ac.auckland.dto;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -13,32 +21,32 @@ import javax.xml.bind.annotation.XmlRootElement;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import nz.ac.auckland.purchaseItems.Item;
+import nz.ac.auckland.purchaseItems.Purchase;
 import nz.ac.auckland.userDetail.User;
 
-
-@Entity
-@Table(name = "PURCHASES")
-public class Purchase {
+@XmlRootElement(name="purchases")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class PurchaseDTO {
 	
-	@Id
-	@GeneratedValue( strategy = GenerationType.IDENTITY )
-	@Column(name="PURCHASE_ID")
+	@XmlID
 	private int id;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "USER_ID", nullable = false)
+	@XmlElement(name="buyer")
 	private User buyer;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+	@XmlElement(name="items")
 	private Collection<Item> items = new ArrayList<Item>();
 	
-	@Column(name="TOTAL_COST")
+	@XmlElement(name="total_cost")
 	private double totalCost;
+
+	public PurchaseDTO(User buyer, ArrayList<Item> items) {
+		this(0,buyer,items);
+	}
 	
-	
-	public Purchase() {}
-	
-	public Purchase(User buyer, ArrayList<Item> items) {
+	public PurchaseDTO (int id,User buyer, ArrayList<Item> items) {
+		this.id = id;
 		this.buyer = buyer;
 		this.items = items;
 		
@@ -98,7 +106,6 @@ public class Purchase {
 	            append(buyer).
 	            toHashCode();
 	}
-
 
 
 }
