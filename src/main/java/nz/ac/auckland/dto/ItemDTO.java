@@ -4,11 +4,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -20,14 +15,13 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import nz.ac.auckland.purchaseItems.Category;
 import nz.ac.auckland.purchaseItems.Item;
-import nz.ac.auckland.userDetail.Address;
 
 @XmlRootElement(name="item")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ItemDTO {
 
 	@XmlID
-	private int id;	
+	private String id;	
 	
 	@XmlElement(name="item_name")
 	private String name;
@@ -42,13 +36,13 @@ public class ItemDTO {
 		this(0,name,price);
 	}
 	
-	public ItemDTO(int id, String name, double price){
-		this.id = id;
+	public ItemDTO(long id, String name, double price){
+		this.id = Long.toString(id);
 		this.name = name;
 		this.price = price;
 	}
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	public String getName() {

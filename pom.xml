@@ -24,7 +24,8 @@
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-client</artifactId>
 			<version>3.0.12.Final</version>
-		</dependency>
+		</dependency>	    
+	    
 		<!-- RESTEasy API -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
@@ -38,6 +39,26 @@
 			<version>3.0.12.Final</version>
 		</dependency>
 		
+        <!-- RESTEasy JAXB provider -->
+        <dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxb-provider</artifactId>
+			<version>3.0.12.Final</version>
+		</dependency>
+		
+		<!-- Apache Commons is a useful utility library. It is used in this project to implement
+		     methods equals() and hashCode(), to meet their requirements as stated in the Javadoc
+		     pages for class Object (http://docs.oracle.com/javase/6/docs/api/).
+		     
+		     Apache Commons provides a package (org.apache.commons.lang3.builder) that simplifies
+		     the implementation of equals() and hashCode(). See the Javadoc documentation for
+		     details: https://commons.apache.org/proper/commons-lang/javadocs/api-3.4/ -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+			    
 		<!-- Joda date/time library -->
         <dependency>
 			<groupId>joda-time</groupId>

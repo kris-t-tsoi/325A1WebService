@@ -81,7 +81,7 @@ public class UserResource {
 	
 
 	@GET
-	@Path("{id}")
+	@Path("/{id}")
 	@Produces("application/xml")
 	public UserDTO getUser(@PathParam("id") int id) {
 		
@@ -94,10 +94,7 @@ public class UserResource {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}
 		
-		UserDTO dto = UserMapper.toDTO(user);
-		
-//		ResponseBuilder builder = Response.ok(entity);		
-		
+		UserDTO dto = UserMapper.toDTO(user);		
 		em.getTransaction().commit();
 		em.close();
 		
@@ -107,22 +104,21 @@ public class UserResource {
 	
 	@POST
 	@Consumes("{application/xml}")
-	public Response createUser(User use) {		
-		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
-		User awesome = new User("userAwesome", "Some", "Awe", address, address);
-		em.getTransaction().begin();
-		em.persist(awesome);
+	public Response createUser(User user) {		
+		em.getTransaction().begin();		
+		em.persist(user);
+		
 		em.getTransaction().commit();
 		em.close();
 
-		return Response.created(URI.create("/user/" + awesome.getId()))
+		return Response.created(URI.create("/user/" + user.getId()))
 				.build();
 	}
 
 
 	
 	@GET
-	@Path("{id}")
+	@Path("/{id}")
 	@Produces("application/xml")
 	public UserDTO getUser(@CookieParam("id") Cookie id) {
 		logger.info("Retrieving account with id: " + id);
@@ -143,15 +139,15 @@ public class UserResource {
 		return dto;	
 	}
 	
+	
 	@PUT
-	@Path("{id}")
+	@Path("/{id}")
 	@Consumes("application/xml")
-	public Response updateUser(@PathParam("id") int id, InputStream is) {	
+	public Response updateUser(@PathParam("id") int id, User user) {	
 
 		em.getTransaction().begin();
 		
 		User current = em.find(User.class, id);
-		User user = readUser(is);
 		
 		if(user == null){
 			// Return a HTTP 404 response if the specified Parolee isn't found.
@@ -174,68 +170,68 @@ public class UserResource {
 
 	}
 
-
-		
-	/**
-	 * Helper method to read an XML representation of a user, and return a
-	 * corresponding user object. 
-	 * 
-	 * @param is the InputStream containing an XML representation of the 
-	 *        user to create.
-	 *        
-	 * @return a new user object.
-	 */
-	protected User readUser(InputStream is) {
-		try {
-			DocumentBuilder builder = DocumentBuilderFactory.newInstance()
-					.newDocumentBuilder();
-			Document doc = builder.parse(is);
-			Element root = doc.getDocumentElement();
-
-			User user = new User();
-			if (root.getAttribute("id") != null
-					&& !root.getAttribute("id").trim().equals(""))
-				user.setId(Integer.valueOf(root.getAttribute("id")));
-			NodeList nodes = root.getChildNodes();
-			for (int i = 0; i < nodes.getLength(); i++) {
-				Element element = (Element) nodes.item(i);
-				if (element.getTagName().equals("user-name")) {
-					user.setUserName(element.getTextContent());
-				} else if (element.getTagName().equals("first-name")) {
-					user.setFirstName(element.getTextContent());
-				} else if (element.getTagName().equals("last-name")) {
-					user.setLastName(element.getTextContent());
-				}  else if (element.getTagName().equals("billing-address")) {
-					storeAddress(user.getBillingAddress(), element);
-				} else if (element.getTagName().equals("shipping-address")) {
-					storeAddress(user.getShippingAddress(), element);
-				} 
-
-			}
-			return user;
-		} catch (Exception e) {
-			throw new WebApplicationException(e, Response.Status.BAD_REQUEST);
-		}
-	}
-	
-	private void storeAddress(Address address, Element el){
-		NodeList subnodes = el.getChildNodes();
-		for(int j=0; j<subnodes.getLength();j++){
-			Element element = (Element) subnodes.item(j);
-			if (element.getTagName().equals("street")) {
-				address.setStreet(element.getTextContent());
-			} else if (element.getTagName().equals("city")) {
-				address.setCity(element.getTextContent());
-			} else if (element.getTagName().equals("country")) {
-				address.setCountry(element.getTextContent());
-			}  else if (element.getTagName().equals("post-code")) {
-				address.setPostcode(Integer.parseInt(element.getTextContent()));
-			} 
-			
-		}
-	}
-	
-	
+//
+//		
+//	/**
+//	 * Helper method to read an XML representation of a user, and return a
+//	 * corresponding user object. 
+//	 * 
+//	 * @param is the InputStream containing an XML representation of the 
+//	 *        user to create.
+//	 *        
+//	 * @return a new user object.
+//	 */
+//	protected User readUser(InputStream is) {
+//		try {
+//			DocumentBuilder builder = DocumentBuilderFactory.newInstance()
+//					.newDocumentBuilder();
+//			Document doc = builder.parse(is);
+//			Element root = doc.getDocumentElement();
+//
+//			User user = new User();
+//			if (root.getAttribute("id") != null
+//					&& !root.getAttribute("id").trim().equals(""))
+//				user.setId(Integer.valueOf(root.getAttribute("id")));
+//			NodeList nodes = root.getChildNodes();
+//			for (int i = 0; i < nodes.getLength(); i++) {
+//				Element element = (Element) nodes.item(i);
+//				if (element.getTagName().equals("user-name")) {
+//					user.setUserName(element.getTextContent());
+//				} else if (element.getTagName().equals("first-name")) {
+//					user.setFirstName(element.getTextContent());
+//				} else if (element.getTagName().equals("last-name")) {
+//					user.setLastName(element.getTextContent());
+//				}  else if (element.getTagName().equals("billing-address")) {
+//					storeAddress(user.getBillingAddress(), element);
+//				} else if (element.getTagName().equals("shipping-address")) {
+//					storeAddress(user.getShippingAddress(), element);
+//				} 
+//
+//			}
+//			return user;
+//		} catch (Exception e) {
+//			throw new WebApplicationException(e, Response.Status.BAD_REQUEST);
+//		}
+//	}
+//	
+//	private void storeAddress(Address address, Element el){
+//		NodeList subnodes = el.getChildNodes();
+//		for(int j=0; j<subnodes.getLength();j++){
+//			Element element = (Element) subnodes.item(j);
+//			if (element.getTagName().equals("street")) {
+//				address.setStreet(element.getTextContent());
+//			} else if (element.getTagName().equals("city")) {
+//				address.setCity(element.getTextContent());
+//			} else if (element.getTagName().equals("country")) {
+//				address.setCountry(element.getTextContent());
+//			}  else if (element.getTagName().equals("post-code")) {
+//				address.setPostcode(Integer.parseInt(element.getTextContent()));
+//			} 
+//			
+//		}
+//	}
+//	
+//	
 	
 	
 }

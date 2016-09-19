@@ -18,7 +18,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
-	private int id;	
+	private long id;	
 	
 	@Column(name="USERNAME", nullable=false, length=20, unique = true)
 	private String userName;
@@ -73,8 +73,8 @@ public class User {
 		purchaseHistory.add(purch);
 	}
 
-	public User(int id,String username, String lastName, String firstName,Address billing, Address shipping){
-		this.id = id;
+	public User(long l,String username, String lastName, String firstName,Address billing, Address shipping){
+		this.id = l;
 		this.userName = username;
 		this.lastName = lastName;
 		this.firstName = firstName;
@@ -102,7 +102,7 @@ public class User {
 		this.shippingAddress = shippingAddress;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
@@ -146,7 +146,7 @@ public class User {
 	            toHashCode();
 	}
 
-	public void setId(int id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

@@ -12,6 +12,7 @@ import javax.ws.rs.core.Response;
 
 import org.junit.Test;
 
+import nz.ac.auckland.dto.UserDTO;
 import nz.ac.auckland.services.user.UserResource;
 import nz.ac.auckland.userDetail.Address;
 import nz.ac.auckland.userDetail.PersistenceManager;
@@ -30,7 +31,7 @@ public class UserTest {
 		
 		
 		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
-		User awesome = new User("userAwesome", "Some", "Awe", address, address);
+		UserDTO awesome = new UserDTO("userAwesome", "Some", "Awe", address, address);
 		
 		
 		Client client = ClientBuilder.newClient();

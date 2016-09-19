@@ -23,7 +23,7 @@ public class Purchase {
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	@Column(name="PURCHASE_ID")
-	private int id;
+	private long id;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name = "USER_ID", nullable = false)
@@ -38,7 +38,7 @@ public class Purchase {
 	
 	public Purchase() {}
 	
-	public Purchase(int id,User buyer, Collection<Item> collection) {
+	public Purchase(long id,User buyer, Collection<Item> collection) {
 		this.id = id;
 		this.buyer = buyer;
 		this.items = collection;
@@ -61,13 +61,29 @@ public class Purchase {
 		this.totalCost = cost;
 	}
 	
-	
-	public int getId() {
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public long getId() {
 		return id;
 	}
 
 	public User getBuyer() {
 		return buyer;
+	}
+
+	public void setBuyer(User buyer) {
+		this.buyer = buyer;
+	}
+
+	public void setItems(Collection<Item> items) {
+		this.items = items;
+	}
+
+	public void setTotalCost(double totalCost) {
+		this.totalCost = totalCost;
 	}
 
 	public Collection<Item> getItems() {

@@ -7,7 +7,7 @@ public class CategoryMapper {
 
 	
 	static Category toDomainModel(CategoryDTO dto){
-		Category cat = new Category(dto.getId(),dto.getName());
+		Category cat = new Category(Long.parseLong(dto.getId()),dto.getName());
 		return cat;
 	}
 	

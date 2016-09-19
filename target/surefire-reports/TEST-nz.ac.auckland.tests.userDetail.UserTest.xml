@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="nz.ac.auckland.tests.userDetail.UserTest" time="0.429" errors="1" skipped="0">
+<testsuite tests="1" failures="1" name="nz.ac.auckland.tests.userDetail.UserTest" time="0.736" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_92\jre\bin"/>
@@ -27,7 +27,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\Kristy\Documents\Eclipse\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf6300556403468472391.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\Kristy\Documents\Eclipse\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf2821651343250358513.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_92\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_101/bin/server;C:/Program Files/Java/jre1.8.0_101/bin;C:/Program Files/Java/jre1.8.0_101/lib/amd64;C:\Program Files (x86)\HP SimplePass\x64;C:\Program Files (x86)\HP SimplePass\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\MATLAB\R2013a Student\bin;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Skype\Phone\;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\Kristy\AppData\Roaming\npm;C:\Users\Kristy\eclipse\java-mars\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -61,12 +61,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="nz.ac.auckland.tests.userDetail.UserTest" name="CreateUserTest" time="0.429">
-    <error message="Unable to invoke request" type="javax.ws.rs.ProcessingException">javax.ws.rs.ProcessingException: Unable to invoke request
-	at org.jboss.resteasy.client.jaxrs.engines.ApacheHttpClient4Engine.invoke(ApacheHttpClient4Engine.java:287)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.invoke(ClientInvocation.java:436)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocationBuilder.post(ClientInvocationBuilder.java:195)
-	at nz.ac.auckland.tests.userDetail.UserTest.CreateUserTest(UserTest.java:45)
+  <testcase classname="nz.ac.auckland.tests.userDetail.UserTest" name="CreateUserTest" time="0.736">
+    <failure message="Failed to create new user" type="java.lang.AssertionError">java.lang.AssertionError: Failed to create new user
+	at org.junit.Assert.fail(Assert.java:88)
+	at nz.ac.auckland.tests.userDetail.UserTest.CreateUserTest(UserTest.java:47)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -96,18 +94,38 @@
 	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: javax.ws.rs.ProcessingException: could not find writer for content-type application/xml type: nz.ac.auckland.userDetail.User
-	at org.jboss.resteasy.core.interception.ClientWriterInterceptorContext.throwWriterNotFoundException(ClientWriterInterceptorContext.java:40)
-	at org.jboss.resteasy.core.interception.AbstractWriterInterceptorContext.getWriter(AbstractWriterInterceptorContext.java:138)
-	at org.jboss.resteasy.core.interception.AbstractWriterInterceptorContext.proceed(AbstractWriterInterceptorContext.java:117)
-	at org.jboss.resteasy.plugins.interceptors.encoding.GZIPEncodingInterceptor.aroundWriteTo(GZIPEncodingInterceptor.java:100)
-	at org.jboss.resteasy.core.interception.AbstractWriterInterceptorContext.proceed(AbstractWriterInterceptorContext.java:122)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.writeRequestBody(ClientInvocation.java:370)
-	at org.jboss.resteasy.client.jaxrs.engines.ApacheHttpClient4Engine.writeRequestBodyToOutputStream(ApacheHttpClient4Engine.java:558)
-	at org.jboss.resteasy.client.jaxrs.engines.ApacheHttpClient4Engine.buildEntity(ApacheHttpClient4Engine.java:524)
-	at org.jboss.resteasy.client.jaxrs.engines.ApacheHttpClient4Engine.loadHttpMethod(ApacheHttpClient4Engine.java:423)
-	at org.jboss.resteasy.client.jaxrs.engines.ApacheHttpClient4Engine.invoke(ApacheHttpClient4Engine.java:281)
-	... 32 more
-</error>
+</failure>
+    <system-out>2016-09-19 21:30:50,161 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
+2016-09-19 21:30:50,171 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnectionOperator  - Connecting to localhost:10000
+2016-09-19 21:30:50,187 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
+2016-09-19 21:30:50,195 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
+2016-09-19 21:30:50,195 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
+2016-09-19 21:30:50,195 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
+2016-09-19 21:30:50,195 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
+2016-09-19 21:30:50,195 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: POST /services/user HTTP/1.1
+2016-09-19 21:30:50,196 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;POST /services/user HTTP/1.1[\r][\n]&quot;
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Type: application/xml[\r][\n]&quot;
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Length: 452[\r][\n]&quot;
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.headers  - &gt;&gt; POST /services/user HTTP/1.1
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Type: application/xml
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Length: 452
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
+2016-09-19 21:30:50,197 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&lt;user id=&quot;0&quot;&gt;&lt;user-name&gt;userAwesome&lt;/user-name&gt;&lt;first-name&gt;Awe&lt;/first-name&gt;&lt;last-name&gt;Some&lt;/last-name&gt;&lt;billing-address&gt;&lt;street&gt;12 abc Street&lt;/street&gt;&lt;city&gt;Auckland&lt;/city&gt;&lt;country&gt;New Zealand&lt;/country&gt;&lt;post-code&gt;1111&lt;/post-code&gt;&lt;/billing-address&gt;&lt;shipping-address&gt;&lt;street&gt;12 abc Street&lt;/street&gt;&lt;city&gt;Auckland&lt;/city&gt;&lt;country&gt;New Zealand&lt;/country&gt;&lt;post-code&gt;1111&lt;/post-code&gt;&lt;/shipping-address&gt;&lt;/user&gt;&quot;
+2016-09-19 21:30:50,229 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 404 Not Found[\r][\n]&quot;
+2016-09-19 21:30:50,232 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 0[\r][\n]&quot;
+2016-09-19 21:30:50,232 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
+2016-09-19 21:30:50,232 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
+2016-09-19 21:30:50,234 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 404 Not Found
+2016-09-19 21:30:50,234 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 404 Not Found
+2016-09-19 21:30:50,234 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 0
+2016-09-19 21:30:50,234 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
+2016-09-19 21:30:50,239 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
+</system-out>
   </testcase>
 </testsuite>

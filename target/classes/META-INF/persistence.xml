@@ -30,7 +30,6 @@
 		<class>nz.ac.auckland.purchaseItems.Purchase</class>
 		<class>nz.ac.auckland.purchaseItems.Category</class>
 		<class>nz.ac.auckland.userDetail.User</class>
-		<class>nz.ac.auckland.userDetail.CreditCardDetails</class>
 		
 
 		<properties>

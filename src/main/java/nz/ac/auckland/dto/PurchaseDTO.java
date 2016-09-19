@@ -30,7 +30,7 @@ import nz.ac.auckland.userDetail.User;
 public class PurchaseDTO {
 	
 	@XmlID
-	private int id;
+	private String id;
 	
 	@XmlElement(name="buyer")
 	private User buyer;
@@ -45,8 +45,8 @@ public class PurchaseDTO {
 		this(0,buyer,items);
 	}
 	
-	public PurchaseDTO (int id, User buyer, Collection<Item> items) {
-		this.id = id;
+	public PurchaseDTO (long id, User buyer, Collection<Item> items) {
+		this.id = Long.toString(id);
 		this.buyer = buyer;
 		this.items = items;
 		
@@ -58,7 +58,7 @@ public class PurchaseDTO {
 	}
 	
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 

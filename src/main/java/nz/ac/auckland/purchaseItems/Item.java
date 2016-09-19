@@ -18,8 +18,9 @@ public class Item {
 	@Id
 	@GeneratedValue( strategy = GenerationType.IDENTITY )
 	@Column(name="ITEM_ID")
-	private int id;	
+	private long id;	
 	
+
 	@Column(name="ITEM_NAME", nullable=false, length=20)
 	private String name;
 	
@@ -29,20 +30,23 @@ public class Item {
 	@OneToMany
 	private Set<Category> categories = new HashSet<Category>();
 	
-	private Item() {}
+	public Item() {}
 	
 	public Item(String name, double price) {
 		this.name = name;
 		this.price = price;
 	}
-	
-	public Item(int id,String name, double price) {
+
+	public void setId(long id) {
+		this.id = id;
+	}
+	public Item(long id,String name, double price) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
 	}
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 	public String getName() {

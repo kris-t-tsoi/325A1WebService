@@ -11,7 +11,7 @@ import nz.ac.auckland.userDetail.User;
 public class PurchaseMapper {
 	
 	static Purchase toDomainModel(PurchaseDTO dto){
-		Purchase pur = new Purchase(dto.getId(), dto.getBuyer(),dto.getItems());
+		Purchase pur = new Purchase(Long.parseLong(dto.getId()), dto.getBuyer(),dto.getItems());
 		return pur;
 	}
 	

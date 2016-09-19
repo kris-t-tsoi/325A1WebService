@@ -21,7 +21,7 @@ import nz.ac.auckland.purchaseItems.Item;
 public class CategoryDTO {
 
 	@XmlID
-	private int id;
+	private String id;
 	
 	@XmlElement(name="category-name")
 	private String name;
@@ -32,13 +32,13 @@ public class CategoryDTO {
 		this(0,name);
 	}
 
-	public CategoryDTO(int id,String name) {
-		this.id = id;
+	public CategoryDTO(long id,String name) {
+		this.id =Long.toString(id);
 		this.name = name;
 	}
 
 	
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
