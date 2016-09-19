@@ -12,6 +12,8 @@ import javax.ws.rs.core.Response;
 
 import org.junit.Test;
 import org.omg.PortableInterceptor.SUCCESSFUL;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import nz.ac.auckland.dto.UserDTO;
 import nz.ac.auckland.services.user.UserResource;
@@ -23,44 +25,44 @@ public class UserTest {
 	
 	private static final String WEB_SERVICE_URI = "http://localhost:10000/services/user";
 	
+	private static final Logger logger = LoggerFactory.getLogger(UserTest.class);
+	
+	static Client client = ClientBuilder.newClient();
+	
+	
 	//client only use dto
 	//server uses dto but can use domain
 	//database only use domain
 
 	@Test
-	public void CreateUserTest() {
-		
+	public void CreateUserTest() {		
 		
 		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
 		UserDTO awesome = new UserDTO("userAwesome", "Some", "Awe", address, address);
 		
-//		
-//		Client client = ClientBuilder.newClient();
-//			
-//		Response response = client
-//				.target(WEB_SERVICE_URI).request()
-//				.post(Entity.xml(awesome));
-//		
-//		
-//		if (response.getStatus() != 201) {
-//			fail("Failed to create new user");
-//		}
-//		
-//
-//		String location = response.getLocation().toString();
-//		response.close();
+		logger.debug("Open connection to write user");
 		
+		Response response = client
+				.target(WEB_SERVICE_URI).request()
+				.post(Entity.xml(awesome));
+
+
+		if (response.getStatus() != 201) {
+			fail("Failed to create new user");
+		}
 		
 
-//		// Query the Web service for the new Parolee.
+		String location = response.getLocation().toString();
+		logger.debug("location: "+location);
+		response.close();
+		
+		
+//
+//		// Check for new user
 //		User awesomeFromService = client.target(location).request()
 //				.accept("application/xml").get(User.class);
 //
-//		// The original local Parolee object (zoran) should have a value equal
-//		// to that of the Parolee object representing Zoran that is later
-//		// queried from the Web service. The only exception is the value
-//		// returned by getId(), because the Web service assigns this when it
-//		// creates a Parolee.
+//		// Check user details
 //		assertEquals(awesome.getLastName(), awesomeFromService.getLastName());
 //		assertEquals(awesome.getFirstName(), awesomeFromService.getFirstName());
 //		assertEquals(awesome.getUserName(), awesomeFromService.getUserName());

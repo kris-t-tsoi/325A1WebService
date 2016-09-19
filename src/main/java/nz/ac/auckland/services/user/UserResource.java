@@ -87,6 +87,8 @@ public class UserResource {
 		
 		em.getTransaction().begin();
 		
+		logger.debug("Read parolee: " + user);
+		
 		User user = em.find(User.class, id);
 		
 		if(user == null){
@@ -103,15 +105,17 @@ public class UserResource {
 
 	
 	@POST
-	@Consumes("{application/xml}")
+	@Consumes("application/xml")
 	public Response createUser(UserDTO user) {		
-		em.getTransaction().begin();		
+		em.getTransaction().begin();	
 		
-		logger.debug("Read parolee: " + user);
+		logger.debug("Read user: " + user);
 		
 		User ur = UserMapper.toDomainModel(user);	
 		
-		logger.debug("Created parolee: " + ur);
+		logger.debug("Created user: " + ur);
+		
+		logger.debug("Path: " + ur);
 		
 		em.persist(ur);		
 		em.getTransaction().commit();

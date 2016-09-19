@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+import nz.ac.auckland.services.user.UserResource;
 import nz.ac.auckland.userDetail.PersistenceManager;
 
 @ApplicationPath("/services")
@@ -18,7 +19,8 @@ public class PurchaseApplication  extends Application{
 	   {
 		  // Register the ParoleeResource singleton to handle HTTP requests.
 		  PurchaseResource resource = new PurchaseResource();
-	      singletons.add(resource);
+	      singletons.add(resource);	 
+	      singletons.add(new UserResource());
 	      singletons.add(PersistenceManager.instance());
 	   }
 
