@@ -63,8 +63,6 @@ public class User {
 
 	public User(){}
 	
-	
-	
 	public Set<Purchase> getPurchaseHistory() {
 		return purchaseHistory;
 	}

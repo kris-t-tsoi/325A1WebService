@@ -1,9 +1,5 @@
 package nz.ac.auckland.dto;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -27,7 +23,8 @@ public class CategoryDTO {
 	private String name;
 	
 	
-	// Required by JPA.
+	protected CategoryDTO(){}
+	
 	protected CategoryDTO(String name) {
 		this(0,name);
 	}

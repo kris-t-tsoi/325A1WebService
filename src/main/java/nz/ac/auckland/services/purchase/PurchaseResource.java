@@ -17,6 +17,8 @@ import javax.ws.rs.core.Response;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
@@ -30,17 +32,27 @@ import nz.ac.auckland.services.user.UserResource;
 import nz.ac.auckland.userDetail.Address;
 import nz.ac.auckland.userDetail.User;
 
-@Path("purchase")
+@Path("/purchase")
 public class PurchaseResource {
-
+	//Set up Logger
+	private static Logger logger = LoggerFactory.getLogger(PurchaseResource.class);
+	
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("shoppingPU");
 	EntityManager em = entityManagerFactory.createEntityManager();
 	
 	@POST
 	@Consumes("{application/xml}")
-	public Response createPurchase(Purchase pur) {		
-		em.getTransaction().begin();
+	public Response createPurchase(PurchaseDTO dto) {	
+		logger.info("Create account with id: " + dto.getId());
 		
+		em.getTransaction().begin();
+		Purchase pur = PurchaseMapper.toDomainModel(dto);
+		
+		//add purchase to user's purchase history
+		logger.info("Add purchase to user with id purchase history: " + pur.getBuyer().getId());
+		User user = em.find(User.class, pur.getBuyer().getId());
+		user.addPurchase(pur);
+		em.persist(pur);
 		em.persist(pur);
 		em.getTransaction().commit();
 		em.close();
@@ -53,7 +65,7 @@ public class PurchaseResource {
 	@GET
 	@Path("{id}")
 	@Produces("application/xml")
-	public PurchaseDTO getPurchase(@PathParam("id") int id) {
+	public PurchaseDTO getPurchase(@PathParam("id") long id) {
 		
 		em.getTransaction().begin();
 		
@@ -74,7 +86,7 @@ public class PurchaseResource {
 	@GET
 	@Path("{id}")
 	@Produces("application/xml")
-	public UserDTO getPurchaseOwner(@PathParam("id") int id) {
+	public UserDTO getPurchaseOwner(@PathParam("id") long id) {
 		
 		em.getTransaction().begin();
 		

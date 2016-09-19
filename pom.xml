@@ -46,26 +46,6 @@
 			<version>3.0.12.Final</version>
 		</dependency>
 		
-		<!-- Apache Commons is a useful utility library. It is used in this project to implement
-		     methods equals() and hashCode(), to meet their requirements as stated in the Javadoc
-		     pages for class Object (http://docs.oracle.com/javase/6/docs/api/).
-		     
-		     Apache Commons provides a package (org.apache.commons.lang3.builder) that simplifies
-		     the implementation of equals() and hashCode(). See the Javadoc documentation for
-		     details: https://commons.apache.org/proper/commons-lang/javadocs/api-3.4/ -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
-		</dependency>
-			    
-		<!-- Joda date/time library -->
-        <dependency>
-			<groupId>joda-time</groupId>
-			<artifactId>joda-time</artifactId>
-			<version>2.7</version>
-		</dependency>
-
 		<!-- JUnit. -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -86,6 +66,26 @@
 			<version>1.7.12</version>
 		</dependency>
 		
+			<!-- Apache Commons is a useful utility library. It is used in this project to implement
+		     methods equals() and hashCode(), to meet their requirements as stated in the Javadoc
+		     pages for class Object (http://docs.oracle.com/javase/6/docs/api/).
+		     
+		     Apache Commons provides a package (org.apache.commons.lang3.builder) that simplifies
+		     the implementation of equals() and hashCode(). See the Javadoc documentation for
+		     details: https://commons.apache.org/proper/commons-lang/javadocs/api-3.4/ -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
+			    
+		<!-- Joda date/time library -->
+        <dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.7</version>
+		</dependency>
+		
 		<!-- H2 embedded database. -->
 		<dependency>
 			<groupId>com.h2database</groupId>
@@ -100,12 +100,6 @@
 			<version>5.1.0.Final</version>
 		</dependency>
 		
-		<!-- Commons utilities. -->
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.4</version>
-		</dependency>
 		
 	</dependencies>
 	
@@ -169,7 +163,7 @@
 						<id>start-jetty</id>
 						<phase>pre-integration-test</phase>
 						<goals>
-							<goal>run</goal>
+							<goal>start</goal>
 						</goals>
 						<configuration>
 							<scanIntervalSeconds>0</scanIntervalSeconds>
@@ -186,9 +180,5 @@
 				</executions>
 			</plugin>
 		</plugins>
-	</build>
-  
-  
-  
-  
+	</build>  
 </project>

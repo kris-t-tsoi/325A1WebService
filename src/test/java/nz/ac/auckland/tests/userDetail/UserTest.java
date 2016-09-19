@@ -11,6 +11,7 @@ import javax.ws.rs.client.*;
 import javax.ws.rs.core.Response;
 
 import org.junit.Test;
+import org.omg.PortableInterceptor.SUCCESSFUL;
 
 import nz.ac.auckland.dto.UserDTO;
 import nz.ac.auckland.services.user.UserResource;
@@ -33,25 +34,23 @@ public class UserTest {
 		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
 		UserDTO awesome = new UserDTO("userAwesome", "Some", "Awe", address, address);
 		
-		
-		Client client = ClientBuilder.newClient();
-		
-		WebTarget a =client.target(WEB_SERVICE_URI);
-		Invocation.Builder b = a.request();
-		Response response = b.post(Entity.xml(awesome));
-		
+//		
+//		Client client = ClientBuilder.newClient();
+//			
 //		Response response = client
 //				.target(WEB_SERVICE_URI).request()
 //				.post(Entity.xml(awesome));
-		if (response.getStatus() != 201) {
-			fail("Failed to create new user");
-		}
+//		
+//		
+//		if (response.getStatus() != 201) {
+//			fail("Failed to create new user");
+//		}
+//		
+//
+//		String location = response.getLocation().toString();
+//		response.close();
 		
 		
-//		Response response = userRes.createUser(awesome);
-
-		String location = response.getLocation().toString();
-		response.close();
 
 //		// Query the Web service for the new Parolee.
 //		User awesomeFromService = client.target(location).request()

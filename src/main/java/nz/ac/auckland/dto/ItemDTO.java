@@ -32,6 +32,8 @@ public class ItemDTO {
 	@XmlElement(name="categories")
 	private Set<Category> categories = new HashSet<Category>();
 	
+	protected ItemDTO(){}
+	
 	public ItemDTO(String name, double price){
 		this(0,name,price);
 	}

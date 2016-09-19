@@ -41,6 +41,9 @@ public class PurchaseDTO {
 	@XmlElement(name="total_cost")
 	private double totalCost;
 
+	protected PurchaseDTO(){}
+	
+	
 	public PurchaseDTO(User buyer, Collection<Item> items) {
 		this(0,buyer,items);
 	}

@@ -83,7 +83,7 @@ public class UserResource {
 	@GET
 	@Path("/{id}")
 	@Produces("application/xml")
-	public UserDTO getUser(@PathParam("id") int id) {
+	public UserDTO getUser(@PathParam("id") long id) {
 		
 		em.getTransaction().begin();
 		
@@ -104,10 +104,16 @@ public class UserResource {
 	
 	@POST
 	@Consumes("{application/xml}")
-	public Response createUser(User user) {		
+	public Response createUser(UserDTO user) {		
 		em.getTransaction().begin();		
-		em.persist(user);
 		
+		logger.debug("Read parolee: " + user);
+		
+		User ur = UserMapper.toDomainModel(user);	
+		
+		logger.debug("Created parolee: " + ur);
+		
+		em.persist(ur);		
 		em.getTransaction().commit();
 		em.close();
 
@@ -143,7 +149,7 @@ public class UserResource {
 	@PUT
 	@Path("/{id}")
 	@Consumes("application/xml")
-	public Response updateUser(@PathParam("id") int id, User user) {	
+	public Response updateUser(@PathParam("id") long id, User user) {	
 
 		em.getTransaction().begin();
 		
