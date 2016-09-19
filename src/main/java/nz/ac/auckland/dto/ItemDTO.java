@@ -21,7 +21,6 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 import nz.ac.auckland.purchaseItems.Category;
 import nz.ac.auckland.purchaseItems.Item;
 import nz.ac.auckland.userDetail.Address;
-import nz.ac.auckland.userDetail.CreditCardDetails;
 
 @XmlRootElement(name="item")
 @XmlAccessorType(XmlAccessType.FIELD)

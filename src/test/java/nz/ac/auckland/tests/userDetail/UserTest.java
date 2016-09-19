@@ -12,9 +12,8 @@ import javax.ws.rs.core.Response;
 
 import org.junit.Test;
 
-import nz.ac.auckland.services.UserResource;
+import nz.ac.auckland.services.user.UserResource;
 import nz.ac.auckland.userDetail.Address;
-import nz.ac.auckland.userDetail.CreditCardDetails;
 import nz.ac.auckland.userDetail.PersistenceManager;
 import nz.ac.auckland.userDetail.User;
 
@@ -31,12 +30,8 @@ public class UserTest {
 		
 		
 		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
-		User awesome = new User("userAwesome", "Some", "Awe", address, address, null);
+		User awesome = new User("userAwesome", "Some", "Awe", address, address);
 		
-
-		CreditCardDetails ccd = new CreditCardDetails(awesome.getUserName(), "123456789", "11/11/11");
-		
-		awesome.changeCCDetails(ccd);
 		
 		Client client = ClientBuilder.newClient();
 		

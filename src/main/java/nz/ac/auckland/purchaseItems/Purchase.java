@@ -38,7 +38,19 @@ public class Purchase {
 	
 	public Purchase() {}
 	
-	public Purchase(User buyer, ArrayList<Item> items) {
+	public Purchase(int id,User buyer, Collection<Item> collection) {
+		this.id = id;
+		this.buyer = buyer;
+		this.items = collection;
+		
+		double cost = 0;		
+		for(Item i :collection){
+			cost = cost + i.getPrice();
+		}		
+		this.totalCost = cost;
+	}
+	
+	public Purchase(User buyer, Collection<Item> items) {
 		this.buyer = buyer;
 		this.items = items;
 		
@@ -50,7 +62,7 @@ public class Purchase {
 	}
 	
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 

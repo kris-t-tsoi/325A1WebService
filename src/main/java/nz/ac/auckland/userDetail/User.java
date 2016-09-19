@@ -52,10 +52,7 @@ public class User {
     			column=@Column(name="SHIPPING_POST_CODE")),
     })
 	private Address shippingAddress;
-	
-	@OneToOne(cascade=CascadeType.ALL)
-    private CreditCardDetails CCDetails;
-	
+		
 	@OneToMany(mappedBy = "buyer")
     private Set<Purchase> purchaseHistory = new HashSet<Purchase>();
 	
@@ -66,18 +63,7 @@ public class User {
 
 	public User(){}
 	
-	public CreditCardDetails getCCDetails() {
-		return CCDetails;
-	}
-
-	public void changeCCDetails(CreditCardDetails cCDetails) {
-		CCDetails = cCDetails;
-	}
 	
-	public void deleteCCDetails(){
-		CCDetails = null;
-	}
-
 	
 	public Set<Purchase> getPurchaseHistory() {
 		return purchaseHistory;
@@ -87,18 +73,17 @@ public class User {
 		purchaseHistory.add(purch);
 	}
 
-	public User(int id,String username, String lastName, String firstName,Address billing, Address shipping, CreditCardDetails ccd){
+	public User(int id,String username, String lastName, String firstName,Address billing, Address shipping){
 		this.id = id;
 		this.userName = username;
 		this.lastName = lastName;
 		this.firstName = firstName;
 		this.billingAddress = billing;
 		this.shippingAddress = shipping;
-		this.CCDetails = ccd;
 	}
 	
-	public User(String username, String lastName, String firstName,Address billing, Address shipping, CreditCardDetails ccd){
-		this(0,username,lastName,firstName,billing,shipping,ccd);
+	public User(String username, String lastName, String firstName,Address billing, Address shipping){
+		this(0,username,lastName,firstName,billing,shipping);
 	}
 
 	public Address getBillingAddress() {

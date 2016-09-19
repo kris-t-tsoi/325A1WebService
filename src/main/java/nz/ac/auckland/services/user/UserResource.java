@@ -1,9 +1,6 @@
-package nz.ac.auckland.services;
+package nz.ac.auckland.services.user;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -112,7 +109,7 @@ public class UserResource {
 	@Consumes("{application/xml}")
 	public Response createUser(User use) {		
 		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
-		User awesome = new User("userAwesome", "Some", "Awe", address, address, null);
+		User awesome = new User("userAwesome", "Some", "Awe", address, address);
 		em.getTransaction().begin();
 		em.persist(awesome);
 		em.getTransaction().commit();
@@ -167,7 +164,6 @@ public class UserResource {
 		current.setUserName(user.getUserName());
 		current.changeBillingAddress(user.getBillingAddress());
 		current.changeShippingAddress(user.getShippingAddress());
-		current.changeCCDetails(user.getCCDetails());
 		current.setPurchaseHistory(user.getPurchaseHistory());
 
 		em.persist(current);		

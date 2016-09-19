@@ -38,7 +38,7 @@ public class CategoryDTO {
 	}
 
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 

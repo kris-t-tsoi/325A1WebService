@@ -10,7 +10,6 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import nz.ac.auckland.purchaseItems.Purchase;
 import nz.ac.auckland.userDetail.Address;
-import nz.ac.auckland.userDetail.CreditCardDetails;
 
 @XmlRootElement(name="user")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -34,36 +33,19 @@ public class UserDTO {
 		
 		@XmlElement(name="shipping-address")
 		private Address shippingAddress;
-		
-		@XmlElement(name="creditcard-details")
-	    private CreditCardDetails CCDetails;
-		
-		public CreditCardDetails getCCDetails() {
-			return CCDetails;
-		}
-
-		public void changeCCDetails(CreditCardDetails cCDetails) {
-			CCDetails = cCDetails;
-		}
-		
-		public void deleteCCDetails(){
-			CCDetails = null;
-		}
 
 
-
-		public UserDTO(String username, String lastName, String firstName, Address billing, Address shipping, CreditCardDetails ccd){
-			this(0,username,lastName,firstName,billing,shipping,ccd);
+		public UserDTO(String username, String lastName, String firstName, Address billing, Address shipping){
+			this(0,username,lastName,firstName,billing,shipping);
 		}
 		
-		public UserDTO(int id, String username, String lastName, String firstName, Address billing, Address shipping, CreditCardDetails ccd){
+		public UserDTO(int id, String username, String lastName, String firstName, Address billing, Address shipping){
 			this.id = id;
 			this.userName = username;
 			this.lastName = lastName;
 			this.firstName = firstName;
 			this.billingAddress = billing;
 			this.shippingAddress = shipping;
-			this.CCDetails = ccd;
 		}
 
 		public Address getBillingAddress() {

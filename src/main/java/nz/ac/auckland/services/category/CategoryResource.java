@@ -1,4 +1,4 @@
-package nz.ac.auckland.services;
+package nz.ac.auckland.services.category;
 
 import java.net.URI;
 
@@ -13,9 +13,9 @@ import javax.ws.rs.core.Response;
 import nz.ac.auckland.userDetail.Address;
 import nz.ac.auckland.userDetail.User;
 
-@Path("purchase")
-public class PurchaseResource {
-
+@Path("category")
+public class CategoryResource {
+	
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("shoppingPU");
 	EntityManager em = entityManagerFactory.createEntityManager();
 	
@@ -23,7 +23,7 @@ public class PurchaseResource {
 	@Consumes("{application/xml}")
 	public Response createPurchase(User use) {		
 		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
-		User awesome = new User("userAwesome", "Some", "Awe", address, address, null);
+		User awesome = new User("userAwesome", "Some", "Awe", address, address);
 		em.getTransaction().begin();
 		em.persist(awesome);
 		em.getTransaction().commit();
@@ -32,8 +32,6 @@ public class PurchaseResource {
 		return Response.created(URI.create("/user/" + use.getId()))
 				.build();
 	}
-	
-	
 	
 	
 }

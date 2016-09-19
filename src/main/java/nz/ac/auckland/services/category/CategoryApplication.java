@@ -1,4 +1,4 @@
-package nz.ac.auckland.services;
+package nz.ac.auckland.services.category;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -6,17 +6,19 @@ import java.util.Set;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
+import nz.ac.auckland.services.item.ItemResource;
 import nz.ac.auckland.userDetail.PersistenceManager;
 
-public class PurchaseApplication  extends Application{
+@ApplicationPath("/services")
+public class CategoryApplication extends Application {
 
 	private Set<Object> singletons = new HashSet<Object>();
 	
 	
-	   public PurchaseApplication()
+	   public CategoryApplication()
 	   {
 		  // Register the ParoleeResource singleton to handle HTTP requests.
-		  PurchaseResource resource = new PurchaseResource();
+		  CategoryResource resource = new CategoryResource();
 	      singletons.add(resource);
 	      singletons.add(PersistenceManager.instance());
 	   }

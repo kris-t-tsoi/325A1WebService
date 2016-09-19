@@ -41,11 +41,11 @@ public class PurchaseDTO {
 	@XmlElement(name="total_cost")
 	private double totalCost;
 
-	public PurchaseDTO(User buyer, ArrayList<Item> items) {
+	public PurchaseDTO(User buyer, Collection<Item> items) {
 		this(0,buyer,items);
 	}
 	
-	public PurchaseDTO (int id,User buyer, ArrayList<Item> items) {
+	public PurchaseDTO (int id, User buyer, Collection<Item> items) {
 		this.id = id;
 		this.buyer = buyer;
 		this.items = items;
@@ -58,7 +58,7 @@ public class PurchaseDTO {
 	}
 	
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 

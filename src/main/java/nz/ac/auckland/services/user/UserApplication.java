@@ -1,4 +1,4 @@
-package nz.ac.auckland.services;
+package nz.ac.auckland.services.user;
 
 import java.util.HashSet;
 import java.util.Set;
