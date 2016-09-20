@@ -25,14 +25,9 @@ public class UserTest {
 	
 	private static final String WEB_SERVICE_URI = "http://localhost:10000/services/user";
 	
-	private static final Logger logger = LoggerFactory.getLogger(UserTest.class);
-	
+	private static final Logger logger = LoggerFactory.getLogger(UserTest.class);	
 	static Client client = ClientBuilder.newClient();
-	
-	
-	//client only use dto
-	//server uses dto but can use domain
-	//database only use domain
+
 
 	@Test
 	public void CreateUserTest() {		
@@ -57,17 +52,17 @@ public class UserTest {
 		response.close();
 		
 		
-//
-//		// Check for new user
-//		User awesomeFromService = client.target(location).request()
-//				.accept("application/xml").get(User.class);
-//
-//		// Check user details
-//		assertEquals(awesome.getLastName(), awesomeFromService.getLastName());
-//		assertEquals(awesome.getFirstName(), awesomeFromService.getFirstName());
-//		assertEquals(awesome.getUserName(), awesomeFromService.getUserName());
-//		assertEquals(awesome.getBillingAddress(), awesomeFromService.getBillingAddress());
-//		assertEquals(awesome.getShippingAddress(), awesomeFromService.getShippingAddress());
+
+		// Check for new user
+		UserDTO awesomeFromService = client.target(location).request()
+				.accept("application/xml").get(UserDTO.class);
+
+		// Check user details
+		assertEquals(awesome.getLastName(), awesomeFromService.getLastName());
+		assertEquals(awesome.getFirstName(), awesomeFromService.getFirstName());
+		assertEquals(awesome.getUserName(), awesomeFromService.getUserName());
+		assertEquals(awesome.getBillingAddress(), awesomeFromService.getBillingAddress());
+		assertEquals(awesome.getShippingAddress(), awesomeFromService.getShippingAddress());
 	}
 
 }
