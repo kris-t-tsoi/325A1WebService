@@ -39,6 +39,8 @@ public class PurchaseDTO {
 	@XmlElement(name="items")
 	private Collection<ItemDTO> items = new ArrayList<ItemDTO>();
 	
+	
+
 	@XmlElement(name="total_cost")
 	private double totalCost;
 
@@ -61,7 +63,9 @@ public class PurchaseDTO {
 		this.totalCost = cost;
 	}
 	
-	
+	public void setItems(Collection<ItemDTO> items) {
+		this.items = items;
+	}
 	public long getId() {
 		return id;
 	}

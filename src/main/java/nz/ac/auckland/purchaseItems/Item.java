@@ -59,7 +59,7 @@ public class Item {
 		return price;
 	}	
 	public Set<Category> getCategories() {
-		return Collections.unmodifiableSet(categories);
+		return categories;
 	}
 	
 	public void addCategory(Category category){
