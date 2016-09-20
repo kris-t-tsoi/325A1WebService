@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.*;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hibernate.annotations.Cascade;
 
 
 @Entity
@@ -27,23 +28,25 @@ public class Item {
 	@Column(name="PRICE", nullable=false)
 	private double price;
 	
-	@OneToMany
+	@OneToMany(cascade=CascadeType.PERSIST)
 	private Set<Category> categories = new HashSet<Category>();
 	
 	public Item() {}
 	
-	public Item(String name, double price) {
+	public Item(String name, double price,Set<Category> categories) {
 		this.name = name;
 		this.price = price;
+		this.categories = categories;
 	}
 
 	public void setId(long id) {
 		this.id = id;
 	}
-	public Item(long id,String name, double price) {
+	public Item(long id,String name, double price,Set<Category> categories) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
+		this.categories = categories;
 	}
 
 	public long getId() {

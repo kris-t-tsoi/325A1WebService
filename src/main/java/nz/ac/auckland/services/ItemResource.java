@@ -14,8 +14,11 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
+import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,25 +50,8 @@ public class ItemResource {
 
 		return Response.created(URI.create("/item/" + it.getId()))
 				.build();
-	}
-	
-	/*
-	 * 		EntityManager em = entityManagerFactory.createEntityManager();
-		em.getTransaction().begin();	
-		
-		logger.debug("Read user: " + user);
-		
-		User ur = UserMapper.toDomainModel(user);	
-		
-		logger.debug("Created user: " + ur);
-		
-		logger.debug("Path: " + ur);
-		
-		em.persist(ur);		
-		em.getTransaction().commit();
-		em.close();
-	 */
-	
+	}	
+
 
 	@GET
 	@Path("/{id}")
@@ -74,7 +60,7 @@ public class ItemResource {
 		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
 		
-		Item it = em.find(Item.class, id);
+		Item it = em.find(Item.class,(long) id);
 		
 		if(it == null){
 			// Return a HTTP 404 response if the specified Parolee isn't found.
@@ -88,24 +74,33 @@ public class ItemResource {
 		return dto;		
 	}
 	
+	//@QueryParam("from") int from,
+//	@QueryParam("to") int to,
+//	@QueryParam("orderBy") List<String> orderBy
 	
-//	@GET
-//	@Path("/{id}")
+	@GET
+	@Path("/{id}")
 //	@Produces("application/xml")
-//	public List<Item> getAllItem() {
-//		EntityManager em = entityManagerFactory.createEntityManager();
-//		em.getTransaction().begin();
-//		
-//		List<Item> items  = em.createQuery("select i from Item i").getResultList( );
-//			
-//		em.getTransaction().commit();
-//		em.close();
-//
-//		if(items.isEmpty()|| items == null){
-//			return null;
-//		}
-//		return items;
-//	}
+	public Response getPriceRangeItem(@QueryParam("from") int from,@QueryParam("to")int to) {
+		EntityManager em = entityManagerFactory.createEntityManager();
+		em.getTransaction().begin();
+		System.err.println("before query");
+		List<Item> items  = em.createQuery("select i from ITEM i where i.price >"+from+" and i.price <"+to).getResultList( );
+		System.err.println("list size: "+items.size());
+		List<ItemDTO> dto = new ArrayList<ItemDTO>();
+		for(Item i:items){
+			dto.add(ItemMapper.toDTO(i));
+		}
+		
+		GenericEntity<List<ItemDTO>> enty = new GenericEntity<List<ItemDTO>>(dto){};
+		em.getTransaction().commit();
+		em.close();
+
+		if(items.isEmpty()|| items == null){
+			return null;
+		}
+		return Response.ok(enty).build();
+	}
 	
 	
 	
@@ -118,33 +113,33 @@ public class ItemResource {
 	
 	
 	//get items in category
-	@GET
-	@Path("/{id}")
-	@Produces("application/xml")
-	public List<ItemDTO> getItemsInCategory(@PathParam("id") long id) {
-		EntityManager em = entityManagerFactory.createEntityManager();
-		em.getTransaction().begin();
-		
-		List<ItemDTO> itemInCategory = new ArrayList<ItemDTO>();
-		
-		List<Item> items  = em.createQuery("select i from Item i").getResultList( );
-		for(Item i : items){
-			Set<Category> cat = i.getCategories();
-			for(Category c :cat){
-				if(c.getId()==id){
-					ItemDTO dtoItem = ItemMapper.toDTO(i);
-					itemInCategory.add(dtoItem);
-				}
-			}
-		}
-				
-		em.getTransaction().commit();
-		em.close();
-		if(items.isEmpty()|| items == null){
-			return null;
-		}
-		return itemInCategory;
-	}
+//	@GET
+//	@Path("/{id}")
+//	@Produces("application/xml")
+//	public List<ItemDTO> getItemsInCategory(@PathParam("id") long id) {
+//		EntityManager em = entityManagerFactory.createEntityManager();
+//		em.getTransaction().begin();
+//		
+//		List<ItemDTO> itemInCategory = new ArrayList<ItemDTO>();
+//		
+//		List<Item> items  = em.createQuery("select i from Item i").getResultList( );
+////		for(Item i : items){
+////			Set<Category> cat = i.getCategories();
+////			for(Category c :cat){
+////				if(c.getId()==id){
+////					ItemDTO dtoItem = ItemMapper.toDTO(i);
+////					itemInCategory.add(dtoItem);
+////				}
+////			}
+////		}
+//				
+//		em.getTransaction().commit();
+//		em.close();
+//		if(items.isEmpty()|| items == null){
+//			return null;
+//		}
+//		return itemInCategory;
+//	}
 	
 	
 	

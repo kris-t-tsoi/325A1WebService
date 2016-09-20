@@ -29,18 +29,18 @@ public class UserDTO {
 		private String lastName;
 
 		@XmlElement(name="billing-address")
-		private Address billingAddress;
+		private AddressDTO billingAddress;
 		
 		@XmlElement(name="shipping-address")
-		private Address shippingAddress;
+		private AddressDTO shippingAddress;
 
 		public UserDTO(){}
 
-		public UserDTO(String username, String lastName, String firstName, Address billing, Address shipping){
+		public UserDTO(String username, String lastName, String firstName, AddressDTO billing, AddressDTO shipping){
 			this(0,username,lastName,firstName,billing,shipping);
 		}
 		
-		public UserDTO(long l, String username, String lastName, String firstName, Address billing, Address shipping){
+		public UserDTO(long l, String username, String lastName, String firstName, AddressDTO billing, AddressDTO shipping){
 			this.id = l;
 			this.userName = username;
 			this.lastName = lastName;
@@ -49,19 +49,19 @@ public class UserDTO {
 			this.shippingAddress = shipping;
 		}
 
-		public Address getBillingAddress() {
+		public AddressDTO getBillingAddress() {
 			return billingAddress;
 		}
 
-		public void changeBillingAddress(Address billingAddress) {
+		public void changeBillingAddress(AddressDTO billingAddress) {
 			this.billingAddress = billingAddress;
 		}
 
-		public Address getShippingAddress() {
+		public AddressDTO getShippingAddress() {
 			return shippingAddress;
 		}
 
-		public void changeShippingAddress(Address shippingAddress) {
+		public void changeShippingAddress(AddressDTO shippingAddress) {
 			this.shippingAddress = shippingAddress;
 		}
 

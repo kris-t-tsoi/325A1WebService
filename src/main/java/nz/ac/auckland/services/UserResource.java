@@ -125,29 +125,28 @@ public class UserResource {
 				.build();
 	}
 
-
 	
-	@GET
-	@Path("/{id}")
-	@Produces("application/xml")
-	public UserDTO getUser(@CookieParam("id") Cookie id) {
-		logger.info("Retrieving account with id: " + id);
-		EntityManager em = entityManagerFactory.createEntityManager();
-		em.getTransaction().begin();
-		
-		User user = em.find(User.class, id.getValue());		
-		
-		if(user == null){
-			// Return a HTTP 404 response if the specified Parolee isn't found.
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
-		}			
-		UserDTO dto = UserMapper.toDTO(user);
-		
-		em.getTransaction().commit();
-		em.close();
-		
-		return dto;	
-	}
+//	@GET
+//	@Path("/{id}")
+//	@Produces("application/xml")
+//	public UserDTO getUser(@CookieParam("id") Cookie id) {
+//		logger.info("Retrieving account with id: " + id);
+//		EntityManager em = entityManagerFactory.createEntityManager();
+//		em.getTransaction().begin();
+//		
+//		User user = em.find(User.class, id.getValue());		
+//		
+//		if(user == null){
+//			// Return a HTTP 404 response if the specified Parolee isn't found.
+//			throw new WebApplicationException(Response.Status.NOT_FOUND);
+//		}			
+//		UserDTO dto = UserMapper.toDTO(user);
+//		
+//		em.getTransaction().commit();
+//		em.close();
+//		
+//		return dto;	
+//	}
 	
 	
 	@PUT

@@ -24,11 +24,12 @@ import nz.ac.auckland.userDetail.User;
 public class CategoryResource {
 	
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("shoppingPU");
-	EntityManager em = entityManagerFactory.createEntityManager();
+	
 	
 	@POST
 	@Consumes("application/xml")
-	public Response createCategory(CategoryDTO dto) {		
+	public Response createCategory(CategoryDTO dto) {
+		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
 		Category cat = CategoryMapper.toDomainModel(dto);
 		em.persist(cat);
@@ -43,10 +44,10 @@ public class CategoryResource {
 	@Path("/{id}")
 	@Produces("application/xml")
 	public CategoryDTO getCategory(@PathParam("id") long id) {
-		
+		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
 		
-		Category cat = em.find(Category.class, id);
+		Category cat = em.find(Category.class,(long) id);
 		
 		if(cat == null){
 			// Return a HTTP 404 response if the specified Parolee isn't found.

@@ -5,17 +5,17 @@ import nz.ac.auckland.userDetail.User;
 
 public class UserMapper {
 	
-	static User toDomainModel(UserDTO dto){
+	public static User toDomainModel(UserDTO dto){
 		User user = new User(dto.getId(),dto.getUserName()
 				,dto.getLastName(), dto.getFirstName(),
-				dto.getBillingAddress(),dto.getShippingAddress());
+				AddressMapper.toDomainModel(dto.getBillingAddress()),AddressMapper.toDomainModel(dto.getShippingAddress()));
 		return user;
 	}
 	
 	public static UserDTO toDTO (User user){
 		UserDTO dto = new UserDTO(user.getId(),user.getUserName(), 
 				user.getLastName(), user.getFirstName(), 
-				user.getBillingAddress(), user.getShippingAddress());
+				AddressMapper.toDTO(user.getBillingAddress()), AddressMapper.toDTO(user.getShippingAddress()));
 		return dto;
 	}
 

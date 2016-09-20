@@ -26,7 +26,7 @@ public class Purchase {
 	private long id;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name = "USER_ID", nullable = false)
+	@JoinColumn(name = "USER_ID")
 	private User buyer;
 	
 	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)

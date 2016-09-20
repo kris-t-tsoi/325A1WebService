@@ -1,35 +1,35 @@
-package nz.ac.auckland.userDetail;
+package nz.ac.auckland.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 
-@Embeddable
-public class Address {
+@XmlAccessorType(XmlAccessType.FIELD)
+public class AddressDTO {
 	
-	@Column(name="STREET", nullable=false, length=50)
+	@XmlElement(name="street",nillable=false)
 	private String street;
 	
-	@Column(name="CITY", nullable=false, length=30)
+	@XmlElement(name="city",nillable=false)
 	private String city;
 	
-	@Column(name="COUNTRY", nullable=false, length=30)
+	@XmlElement(name="country",nillable=false)
 	private String country;
 	
-	@Column(name="POST_CODE", length=10)
+	@XmlElement(name="post-code")
 	private int postcode;
 	
 	//Needed by JPA.
-	protected Address() {}
+	protected AddressDTO() {}
 		
-	public Address( String street, String city, String country, int postcode) {
+	public AddressDTO( String street, String city, String country, int postcode) {
 		this.street = street;
 		this.city = city;
 		this.country = country;
 		this.postcode = postcode;
 	}
 	
-
 	public String getStreet() {
 		return street;
 	}
@@ -61,12 +61,5 @@ public class Address {
 	public void setPostcode(int postcode) {
 		this.postcode = postcode;
 	}
-
-	public void ChangeAddress (String street, String city, String country, int postcode){
-		this.street = street;
-		this.city = city;
-		this.country = country;
-		this.postcode = postcode;
-	}
-
+	
 }

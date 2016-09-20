@@ -31,18 +31,19 @@ public class ItemDTO {
 	private double price;
 	
 	@XmlElement(name="categories")
-	private Set<Category> categories = new HashSet<Category>();
+	private Set<CategoryDTO> categories = new HashSet<CategoryDTO>();
 	
 	protected ItemDTO(){}
 	
-	public ItemDTO(String name, double price){
-		this(0,name,price);
+	public ItemDTO(String name, double price,Set<CategoryDTO> cat){
+		this(0,name,price,cat);
 	}
 	
-	public ItemDTO(long id, String name, double price){
+	public ItemDTO(long id, String name, double price,Set<CategoryDTO> cat){
 		this.id = id;
 		this.name = name;
 		this.price = price;
+//		this.categories = cat;
 	}
 	
 	public long getId() {
@@ -54,15 +55,15 @@ public class ItemDTO {
 	public double getPrice() {
 		return price;
 	}	
-	public Set<Category> getCategories() {
-		return Collections.unmodifiableSet(categories);
+	public Set<CategoryDTO> getCategories() {
+		return categories;
 	}
 	
-	public void addCategory(Category category){
+	public void addCategory(CategoryDTO category){
 		categories.add(category);
 	}
 	
-	public void removeCategory (Category category){
+	public void removeCategory (CategoryDTO category){
 		categories.remove(category);
 	}
 	

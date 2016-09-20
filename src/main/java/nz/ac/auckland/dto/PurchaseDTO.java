@@ -37,7 +37,7 @@ public class PurchaseDTO {
 	private User buyer;
 	
 	@XmlElement(name="items")
-	private Collection<Item> items = new ArrayList<Item>();
+	private Collection<ItemDTO> items = new ArrayList<ItemDTO>();
 	
 	@XmlElement(name="total_cost")
 	private double totalCost;
@@ -45,17 +45,17 @@ public class PurchaseDTO {
 	protected PurchaseDTO(){}
 	
 	
-	public PurchaseDTO(User buyer, Collection<Item> items) {
+	public PurchaseDTO(User buyer, Collection<ItemDTO> items) {
 		this(0,buyer,items);
 	}
 	
-	public PurchaseDTO (long id, User buyer, Collection<Item> items) {
+	public PurchaseDTO (long id, User buyer, Collection<ItemDTO> items) {
 		this.id = id;
 		this.buyer = buyer;
 		this.items = items;
 		
 		double cost = 0;		
-		for(Item i :items){
+		for(ItemDTO i :items){
 			cost = cost + i.getPrice();
 		}		
 		this.totalCost = cost;
@@ -70,7 +70,7 @@ public class PurchaseDTO {
 		return buyer;
 	}
 
-	public Collection<Item> getItems() {
+	public Collection<ItemDTO> getItems() {
 		return items;
 	}
 
@@ -78,11 +78,11 @@ public class PurchaseDTO {
 		return totalCost;
 	}
 	
-	public void addItem(Item i){
+	public void addItem(ItemDTO i){
 		items.add(i);
 	}
 	
-	public void removeItem(Item i){
+	public void removeItem(ItemDTO i){
 		items.remove(i);
 	}
 	

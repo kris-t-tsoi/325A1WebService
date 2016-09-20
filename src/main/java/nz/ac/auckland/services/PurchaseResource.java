@@ -43,19 +43,18 @@ public class PurchaseResource {
 	public Response createPurchase(PurchaseDTO dto) {
 		EntityManager em = entityManagerFactory.createEntityManager();		
 		em.getTransaction().begin();
-
-		logger.info("Create purchase: " + dto);
 		
+		logger.info("Create purchase: " + dto);
+
 		Purchase pur = PurchaseMapper.toDomainModel(dto);
 		logger.debug("Create purchase: " + pur);
 		em.persist(pur);
-		
 		
 		//add purchase to user's purchase history
 		logger.info("Add purchase to user with id purchase history: " + pur.getBuyer().getId());
 		User user = em.find(User.class, pur.getBuyer().getId());
 		user.addPurchase(pur);
-			
+		
 		em.persist(user);
 		em.getTransaction().commit();
 		em.close();
@@ -87,28 +86,28 @@ public class PurchaseResource {
 		
 		return dto;		
 	}
-	
-	@GET
-	@Path("{id}")
-	@Produces("application/xml")
-	public UserDTO getPurchaseOwner(@PathParam("id") long id) {
-		EntityManager em = entityManagerFactory.createEntityManager();
-		em.getTransaction().begin();
-		
-		Purchase pur = em.find(Purchase.class, id);
-		
-		if(pur == null){
-			// Return a HTTP 404 response if the specified Parolee isn't found.
-			throw new WebApplicationException(Response.Status.NOT_FOUND);
-		}
-		
-		User user = pur.getBuyer();
-		UserDTO dto = UserMapper.toDTO(user);
-		em.getTransaction().commit();
-		em.close();
-		
-		return dto;		
-	}
-	
+//	
+//	@GET
+//	@Path("{id}")
+//	@Produces("application/xml")
+//	public UserDTO getPurchaseOwner(@PathParam("id") long id) {
+//		EntityManager em = entityManagerFactory.createEntityManager();
+//		em.getTransaction().begin();
+//		
+//		Purchase pur = em.find(Purchase.class,(long) id);
+//		
+//		if(pur == null){
+//			// Return a HTTP 404 response if the specified Parolee isn't found.
+//			throw new WebApplicationException(Response.Status.NOT_FOUND);
+//		}
+//		
+//		User user = pur.getBuyer();
+//		UserDTO dto = UserMapper.toDTO(user);
+//		em.getTransaction().commit();
+//		em.close();
+//		
+//		return dto;		
+//	}
+//	
 
 }

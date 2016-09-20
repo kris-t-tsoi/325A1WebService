@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="3" failures="0" name="nz.ac.auckland.tests.userDetail.UserTest" time="1.098" errors="3" skipped="0">
+<testsuite tests="1" failures="0" name="nz.ac.auckland.tests.userDetail.UserTest" time="0.838" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_92\jre\bin"/>
@@ -27,7 +27,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="classworlds.conf" value="C:\Users\Kristy\Documents\Eclipse\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf8441511266074073571.tmp"/>
+    <property name="classworlds.conf" value="C:\Users\Kristy\Documents\Eclipse\.metadata\.plugins\org.eclipse.m2e.launching\launches\m2conf3892350288310445109.tmp"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_92\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:/Program Files/Java/jre1.8.0_101/bin/server;C:/Program Files/Java/jre1.8.0_101/bin;C:/Program Files/Java/jre1.8.0_101/lib/amd64;C:\Program Files (x86)\HP SimplePass\x64;C:\Program Files (x86)\HP SimplePass\;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x86;C:\Program Files (x86)\Intel\OpenCL SDK\3.0\bin\x64;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\MATLAB\R2013a Student\bin;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files (x86)\Skype\Phone\;C:\WINDOWS\system32\config\systemprofile\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\Kristy\AppData\Roaming\npm;C:\Users\Kristy\eclipse\java-mars\eclipse;;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -61,13 +61,13 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="nz.ac.auckland.tests.userDetail.UserTest" name="CreateCateogryTest" time="0.871">
-    <error message="HTTP 500 Internal Server Error" type="javax.ws.rs.InternalServerErrorException">javax.ws.rs.InternalServerErrorException: HTTP 500 Internal Server Error
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.handleErrorStatus(ClientInvocation.java:209)
+  <testcase classname="nz.ac.auckland.tests.userDetail.UserTest" name="GetItemsWithinPriceTest" time="0.838">
+    <error message="HTTP 405 Method Not Allowed" type="javax.ws.rs.NotAllowedException">javax.ws.rs.NotAllowedException: HTTP 405 Method Not Allowed
+	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.handleErrorStatus(ClientInvocation.java:203)
 	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.extractResult(ClientInvocation.java:174)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.invoke(ClientInvocation.java:473)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocationBuilder.get(ClientInvocationBuilder.java:165)
-	at nz.ac.auckland.tests.userDetail.UserTest.CreateCateogryTest(UserTest.java:141)
+	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.invoke(ClientInvocation.java:481)
+	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocationBuilder.get(ClientInvocationBuilder.java:171)
+	at nz.ac.auckland.tests.userDetail.UserTest.GetItemsWithinPriceTest(UserTest.java:199)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -98,672 +98,178 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </error>
-    <system-out>2016-09-20 14:43:46,527 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
-2016-09-20 14:43:46,538 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnectionOperator  - Connecting to localhost:10000
-2016-09-20 14:43:46,554 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
-2016-09-20 14:43:46,562 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
-2016-09-20 14:43:46,562 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
-2016-09-20 14:43:46,563 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
-2016-09-20 14:43:46,563 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
-2016-09-20 14:43:46,563 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: POST /services/category HTTP/1.1
-2016-09-20 14:43:46,564 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;POST /services/category HTTP/1.1[\r][\n]&quot;
-2016-09-20 14:43:46,565 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
-2016-09-20 14:43:46,565 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Type: application/xml[\r][\n]&quot;
-2016-09-20 14:43:46,565 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Length: 124[\r][\n]&quot;
-2016-09-20 14:43:46,565 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
-2016-09-20 14:43:46,566 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
-2016-09-20 14:43:46,566 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:46,566 [main] DEBUG org.apache.http.headers  - &gt;&gt; POST /services/category HTTP/1.1
-2016-09-20 14:43:46,566 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
-2016-09-20 14:43:46,566 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Type: application/xml
-2016-09-20 14:43:46,566 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Length: 124
-2016-09-20 14:43:46,566 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
-2016-09-20 14:43:46,566 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
-2016-09-20 14:43:46,567 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&lt;category id=&quot;0&quot;&gt;&lt;category-name&gt;House Hold&lt;/category-name&gt;&lt;/category&gt;&quot;
-2016-09-20 14:43:46,788 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 201 Created[\r][\n]&quot;
-2016-09-20 14:43:46,790 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Location: http://localhost:10000/services/category/1[\r][\n]&quot;
-2016-09-20 14:43:46,790 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 0[\r][\n]&quot;
-2016-09-20 14:43:46,790 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
-2016-09-20 14:43:46,790 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:46,791 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 201 Created
-2016-09-20 14:43:46,791 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 201 Created
-2016-09-20 14:43:46,791 [main] DEBUG org.apache.http.headers  - &lt;&lt; Location: http://localhost:10000/services/category/1
-2016-09-20 14:43:46,791 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 0
-2016-09-20 14:43:46,791 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
-2016-09-20 14:43:46,794 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
-2016-09-20 14:43:46,802 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@2e1d27ba
-2016-09-20 14:43:46,803 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
-2016-09-20 14:43:46,803 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
-2016-09-20 14:43:46,804 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Stale connection check
-2016-09-20 14:43:46,805 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
-2016-09-20 14:43:46,805 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
-2016-09-20 14:43:46,805 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
-2016-09-20 14:43:46,805 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
-2016-09-20 14:43:46,805 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
-2016-09-20 14:43:46,805 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: GET /services/category/1 HTTP/1.1
-2016-09-20 14:43:46,805 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;GET /services/category/1 HTTP/1.1[\r][\n]&quot;
-2016-09-20 14:43:46,805 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept: application/xml[\r][\n]&quot;
-2016-09-20 14:43:46,806 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
-2016-09-20 14:43:46,806 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
-2016-09-20 14:43:46,806 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
-2016-09-20 14:43:46,806 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:46,806 [main] DEBUG org.apache.http.headers  - &gt;&gt; GET /services/category/1 HTTP/1.1
-2016-09-20 14:43:46,806 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept: application/xml
-2016-09-20 14:43:46,806 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
-2016-09-20 14:43:46,806 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
-2016-09-20 14:43:46,806 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
-2016-09-20 14:43:46,818 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 500 Server Error[\r][\n]&quot;
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Type: text/html; charset=ISO-8859-1[\r][\n]&quot;
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Cache-Control: must-revalidate,no-cache,no-store[\r][\n]&quot;
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 7742[\r][\n]&quot;
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 500 Server Error
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 500 Server Error
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Type: text/html; charset=ISO-8859-1
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.headers  - &lt;&lt; Cache-Control: must-revalidate,no-cache,no-store
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 7742
-2016-09-20 14:43:46,819 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
-2016-09-20 14:43:46,820 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
-2016-09-20 14:43:46,821 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;html&gt;[\n]&quot;
-2016-09-20 14:43:46,821 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;head&gt;[\n]&quot;
-2016-09-20 14:43:46,821 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;/&gt;[\n]&quot;
-2016-09-20 14:43:46,821 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;title&gt;Error 500 Server Error&lt;/title&gt;[\n]&quot;
-2016-09-20 14:43:46,821 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/head&gt;[\n]&quot;
-2016-09-20 14:43:46,821 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;body&gt;&lt;h2&gt;HTTP ERROR 500&lt;/h2&gt;[\n]&quot;
-2016-09-20 14:43:46,821 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;p&gt;Problem accessing /services/category/1. Reason:[\n]&quot;
-2016-09-20 14:43:46,821 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;pre&gt;    Server Error&lt;/pre&gt;&lt;/p&gt;&lt;h3&gt;Caused by:&lt;/h3&gt;&lt;pre&gt;org.jboss.resteasy.spi.UnhandledException: java.lang.IllegalStateException: EntityManager is closed[\r][\n]&quot;
-2016-09-20 14:43:46,821 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ExceptionHandler.handleApplicationException(ExceptionHandler.java:76)[\r][\n]&quot;
-2016-09-20 14:43:46,821 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ExceptionHandler.handleException(ExceptionHandler.java:212)[\r][\n]&quot;
-2016-09-20 14:43:46,822 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.writeException(SynchronousDispatcher.java:166)[\r][\n]&quot;
-2016-09-20 14:43:46,822 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:393)[\r][\n]&quot;
-2016-09-20 14:43:46,822 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:200)[\r][\n]&quot;
-2016-09-20 14:43:46,822 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.ServletContainerDispatcher.service(ServletContainerDispatcher.java:220)[\r][\n]&quot;
-2016-09-20 14:43:46,822 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.&quot;
-2016-09-20 14:43:46,822 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;service(HttpServletDispatcher.java:56)[\r][\n]&quot;
-2016-09-20 14:43:46,822 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:51)[\r][\n]&quot;
-2016-09-20 14:43:46,822 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)[\r][\n]&quot;
-2016-09-20 14:43:46,822 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHolder.&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;handle(ServletHolder.java:698)[\r][\n]&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:519)[\r][\n]&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:138)[\r][\n]&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:564)[\r][\n]&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:213)[\r][\n]&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1097)[\r][\n]&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:446)[\r][\n]&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:175)[\r][\n]&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1031)[\r][\n]&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)[\r][\n]&quot;
-2016-09-20 14:43:46,827 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:200)[\r][\n]&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)[\r][\n]&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.Handl&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;erWrapper.handle(HandlerWrapper.java:97)[\r][\n]&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.Server.handle(Server.java:445)[\r][\n]&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:269)[\r][\n]&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:229)[\r][\n]&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.io.AbstractConnection$ReadCallback.run(AbstractConnection.java:358)[\r][\n]&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:601)[\r][\n]&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:532)[\r][\n]&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.Thread.run(Thread.java:745)[\r][\n]&quot;
-2016-09-20 14:43:46,828 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Caused by: java.lang.IllegalStateException: EntityManager is closed[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.internal.EntityManagerImpl.checkOpen(EntityManagerImpl.java:97)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.internal.EntityManagerImpl.checkOpen(EntityManagerImpl.java:88)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.internal.EntityManagerImpl.getSession(EntityManagerImpl.java:103)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.internal.TransactionImpl.getSession(TransactionImpl.java:35)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.internal.TransactionImpl.b&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;egin(TransactionImpl.java:45)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at nz.ac.auckland.services.CategoryResource.getCategory(CategoryResource.java:47)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.reflect.Method.invoke(Method.java:498)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:137)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:296)[\r][\n]&quot;
-2016-09-20 14:43:46,829 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:250)[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:237)[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:377)[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]... 25 more[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/pre&gt;[\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;h3&gt;Caused by:&lt;/h3&gt;&lt;pre&gt;java.lang.IllegalStateException: EntityManager is closed[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.internal.EntityManagerImpl.checkOpen(En&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;tityManagerImpl.java:97)[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.internal.EntityManagerImpl.checkOpen(EntityManagerImpl.java:88)[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.internal.EntityManagerImpl.getSession(EntityManagerImpl.java:103)[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.internal.TransactionImpl.getSession(TransactionImpl.java:35)[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.internal.TransactionImpl.begin(TransactionImpl.java:45)[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at nz.ac.auckland.services.CategoryResource.getCategory(CategoryResource.java:47)[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[\r][\n]&quot;
-2016-09-20 14:43:46,830 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.reflect.Method.invoke(Method.java:498)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:137)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:296)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:250)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jb&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;oss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:237)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:377)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:200)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.ServletContainerDispatcher.service(ServletContainerDispatcher.java:220)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:56)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:51)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)[\r][\n]&quot;
-2016-09-20 14:43:46,831 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:698)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:519)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:138)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:564)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.Sessio&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;nHandler.doHandle(SessionHandler.java:213)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1097)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:446)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:175)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1031)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:200)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.Server.handle(Server.java:445)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:269)[\r][\n]&quot;
-2016-09-20 14:43:46,832 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:229)[\r][\n]&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.io.AbstractConnection$ReadCallback.run(Abs&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;tractConnection.java:358)[\r][\n]&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:601)[\r][\n]&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:532)[\r][\n]&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.Thread.run(Thread.java:745)[\r][\n]&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/pre&gt;[\n]&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;hr&gt;&lt;i&gt;&lt;small&gt;Powered by Jetty://&lt;/small&gt;&lt;/i&gt;&lt;hr/&gt;[\n]&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\n]&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/body&gt;[\n]&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/html&gt;[\n]&quot;
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@44a7bfbc
-2016-09-20 14:43:46,833 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
-</system-out>
-  </testcase>
-  <testcase classname="nz.ac.auckland.tests.userDetail.UserTest" name="CreateUserTest" time="0.093">
-    <error message="HTTP 500 Internal Server Error" type="javax.ws.rs.InternalServerErrorException">javax.ws.rs.InternalServerErrorException: HTTP 500 Internal Server Error
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.handleErrorStatus(ClientInvocation.java:209)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.extractResult(ClientInvocation.java:174)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.invoke(ClientInvocation.java:473)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocationBuilder.get(ClientInvocationBuilder.java:165)
-	at nz.ac.auckland.tests.userDetail.UserTest.CreateUserTest(UserTest.java:76)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-</error>
-    <system-out>2016-09-20 14:43:46,870 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
-2016-09-20 14:43:46,870 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnectionOperator  - Connecting to localhost:10000
-2016-09-20 14:43:46,871 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
-2016-09-20 14:43:46,871 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: POST /services/user HTTP/1.1
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;POST /services/user HTTP/1.1[\r][\n]&quot;
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Type: application/xml[\r][\n]&quot;
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Length: 452[\r][\n]&quot;
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
-2016-09-20 14:43:46,872 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:46,873 [main] DEBUG org.apache.http.headers  - &gt;&gt; POST /services/user HTTP/1.1
-2016-09-20 14:43:46,873 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
-2016-09-20 14:43:46,873 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Type: application/xml
-2016-09-20 14:43:46,873 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Length: 452
-2016-09-20 14:43:46,873 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
-2016-09-20 14:43:46,873 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
-2016-09-20 14:43:46,873 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&lt;user id=&quot;0&quot;&gt;&lt;user-name&gt;userAwesome&lt;/user-name&gt;&lt;first-name&gt;Awe&lt;/first-name&gt;&lt;last-name&gt;Some&lt;/last-name&gt;&lt;billing-address&gt;&lt;street&gt;12 abc Street&lt;/street&gt;&lt;city&gt;Auckland&lt;/city&gt;&lt;country&gt;New Zealand&lt;/country&gt;&lt;post-code&gt;1111&lt;/post-code&gt;&lt;/billing-address&gt;&lt;shipping-address&gt;&lt;street&gt;12 abc Street&lt;/street&gt;&lt;city&gt;Auckland&lt;/city&gt;&lt;country&gt;New Zealand&lt;/country&gt;&lt;post-code&gt;1111&lt;/post-code&gt;&lt;/shipping-address&gt;&lt;/user&gt;&quot;
-2016-09-20 14:43:46,908 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 201 Created[\r][\n]&quot;
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Location: http://localhost:10000/services/user/1[\r][\n]&quot;
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 0[\r][\n]&quot;
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 201 Created
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 201 Created
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.headers  - &lt;&lt; Location: http://localhost:10000/services/user/1
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 0
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@59af0466
-2016-09-20 14:43:46,909 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
-2016-09-20 14:43:46,910 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
-2016-09-20 14:43:46,910 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Stale connection check
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: GET /services/user/1 HTTP/1.1
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;GET /services/user/1 HTTP/1.1[\r][\n]&quot;
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept: application/xml[\r][\n]&quot;
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
-2016-09-20 14:43:46,911 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
-2016-09-20 14:43:46,912 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:46,912 [main] DEBUG org.apache.http.headers  - &gt;&gt; GET /services/user/1 HTTP/1.1
-2016-09-20 14:43:46,912 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept: application/xml
-2016-09-20 14:43:46,912 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
-2016-09-20 14:43:46,912 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
-2016-09-20 14:43:46,912 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
-2016-09-20 14:43:46,921 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 500 Server Error[\r][\n]&quot;
-2016-09-20 14:43:46,921 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Type: text/html; charset=ISO-8859-1[\r][\n]&quot;
-2016-09-20 14:43:46,921 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Cache-Control: must-revalidate,no-cache,no-store[\r][\n]&quot;
-2016-09-20 14:43:46,921 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 6786[\r][\n]&quot;
-2016-09-20 14:43:46,921 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
-2016-09-20 14:43:46,922 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:46,922 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 500 Server Error
-2016-09-20 14:43:46,922 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 500 Server Error
-2016-09-20 14:43:46,923 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Type: text/html; charset=ISO-8859-1
-2016-09-20 14:43:46,923 [main] DEBUG org.apache.http.headers  - &lt;&lt; Cache-Control: must-revalidate,no-cache,no-store
-2016-09-20 14:43:46,923 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 6786
-2016-09-20 14:43:46,923 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
-2016-09-20 14:43:46,923 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;html&gt;[\n]&quot;
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;head&gt;[\n]&quot;
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;/&gt;[\n]&quot;
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;title&gt;Error 500 Server Error&lt;/title&gt;[\n]&quot;
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/head&gt;[\n]&quot;
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;body&gt;&lt;h2&gt;HTTP ERROR 500&lt;/h2&gt;[\n]&quot;
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;p&gt;Problem accessing /services/user/1. Reason:[\n]&quot;
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;pre&gt;    Server Error&lt;/pre&gt;&lt;/p&gt;&lt;h3&gt;Caused by:&lt;/h3&gt;&lt;pre&gt;org.jboss.resteasy.spi.UnhandledException: java.lang.NullPointerException[\r][\n]&quot;
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ExceptionHandler.handleApplicationException(ExceptionHandler.java:76)[\r][\n]&quot;
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ExceptionHandler.handleException(ExceptionHandler.java:212)[\r][\n]&quot;
-2016-09-20 14:43:46,924 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.writeException(SynchronousDispatcher.java:166)[\r][\n]&quot;
-2016-09-20 14:43:46,925 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:393)[\r][\n]&quot;
-2016-09-20 14:43:46,925 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:200)[\r][\n]&quot;
-2016-09-20 14:43:46,925 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.ServletContainerDispatcher.service(ServletContainerDispatcher.java:220)[\r][\n]&quot;
-2016-09-20 14:43:46,925 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.&quot;
-2016-09-20 14:43:46,925 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;java:56)[\r][\n]&quot;
-2016-09-20 14:43:46,925 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:51)[\r][\n]&quot;
-2016-09-20 14:43:46,925 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)[\r][\n]&quot;
-2016-09-20 14:43:46,925 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:698)&quot;
-2016-09-20 14:43:46,929 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:46,929 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:519)[\r][\n]&quot;
-2016-09-20 14:43:46,929 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:138)[\r][\n]&quot;
-2016-09-20 14:43:46,929 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:564)[\r][\n]&quot;
-2016-09-20 14:43:46,929 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:213)[\r][\n]&quot;
-2016-09-20 14:43:46,929 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1097)[\r][\n]&quot;
-2016-09-20 14:43:46,929 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:446)[\r][\n]&quot;
-2016-09-20 14:43:46,929 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:175)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1031)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:200)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrappe&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;r.java:97)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.Server.handle(Server.java:445)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:269)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:229)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.io.AbstractConnection$ReadCallback.run(AbstractConnection.java:358)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:601)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:532)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.Thread.run(Thread.java:745)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Caused by: java.lang.NullPointerException[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at nz.ac.auckland.services.UserResource.getUser(UserResource.java:138)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[\r][\n]&quot;
-2016-09-20 14:43:46,930 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.reflect.Method.invoke(Method.java:498)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:137)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:296)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:250)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:237)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:377)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]... 25 more[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/pre&gt;[\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;h3&gt;Caused by:&lt;/h3&gt;&lt;pre&gt;java.lang.NullPointerException[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at nz.ac.auckland.services.UserResource.getUser(UserResource.java:138)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.reflect.Method.invoke(Method.java:498)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:137)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:296)[\r][\n]&quot;
-2016-09-20 14:43:46,931 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.Reso&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;urceMethodInvoker.invoke(ResourceMethodInvoker.java:250)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:237)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:377)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:200)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.ServletContainerDispatcher.service(ServletContainerDispatcher.java:220)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:56)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:51)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:698)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:519)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:138)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.security.SecurityHandler.handle(Se&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;curityHandler.java:564)[\r][\n]&quot;
-2016-09-20 14:43:46,932 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:213)[\r][\n]&quot;
-2016-09-20 14:43:46,933 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1097)[\r][\n]&quot;
-2016-09-20 14:43:46,933 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:446)[\r][\n]&quot;
-2016-09-20 14:43:46,933 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:175)[\r][\n]&quot;
-2016-09-20 14:43:46,933 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1031)[\r][\n]&quot;
-2016-09-20 14:43:46,933 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)[\r][\n]&quot;
-2016-09-20 14:43:46,933 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:200)[\r][\n]&quot;
-2016-09-20 14:43:46,933 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)[\r][\n]&quot;
-2016-09-20 14:43:46,934 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97)[\r][\n]&quot;
-2016-09-20 14:43:46,934 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.Server.handle(Server.java:445)[\r][\n]&quot;
-2016-09-20 14:43:46,934 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:269)[\r][\n]&quot;
-2016-09-20 14:43:46,934 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:22&quot;
-2016-09-20 14:43:46,934 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;9)[\r][\n]&quot;
-2016-09-20 14:43:46,934 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.io.AbstractConnection$ReadCallback.run(AbstractConnection.java:358)[\r][\n]&quot;
-2016-09-20 14:43:46,934 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:601)[\r][\n]&quot;
-2016-09-20 14:43:46,935 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:532)[\r][\n]&quot;
-2016-09-20 14:43:46,935 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.Thread.run(Thread.java:745)[\r][\n]&quot;
-2016-09-20 14:43:46,935 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/pre&gt;[\n]&quot;
-2016-09-20 14:43:46,935 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;hr&gt;&lt;i&gt;&lt;small&gt;Powered by Jetty://&lt;/small&gt;&lt;/i&gt;&lt;hr/&gt;[\n]&quot;
-2016-09-20 14:43:46,935 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\n]&quot;
-2016-09-20 14:43:46,935 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/body&gt;[\n]&quot;
-2016-09-20 14:43:46,935 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/html&gt;[\n]&quot;
-2016-09-20 14:43:46,935 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@3e6ef8ad
-2016-09-20 14:43:46,936 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
-</system-out>
-  </testcase>
-  <testcase classname="nz.ac.auckland.tests.userDetail.UserTest" name="CreateItemTest" time="0.134">
-    <error message="HTTP 500 Internal Server Error" type="javax.ws.rs.InternalServerErrorException">javax.ws.rs.InternalServerErrorException: HTTP 500 Internal Server Error
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.handleErrorStatus(ClientInvocation.java:209)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.extractResult(ClientInvocation.java:174)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocation.invoke(ClientInvocation.java:473)
-	at org.jboss.resteasy.client.jaxrs.internal.ClientInvocationBuilder.get(ClientInvocationBuilder.java:165)
-	at nz.ac.auckland.tests.userDetail.UserTest.CreateItemTest(UserTest.java:109)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-</error>
-    <system-out>2016-09-20 14:43:46,987 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
-2016-09-20 14:43:46,987 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnectionOperator  - Connecting to localhost:10000
-2016-09-20 14:43:46,988 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
-2016-09-20 14:43:46,988 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
-2016-09-20 14:43:46,988 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
-2016-09-20 14:43:46,988 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
-2016-09-20 14:43:46,988 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: POST /services/item HTTP/1.1
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;POST /services/item HTTP/1.1[\r][\n]&quot;
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Type: application/xml[\r][\n]&quot;
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Length: 119[\r][\n]&quot;
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.headers  - &gt;&gt; POST /services/item HTTP/1.1
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Type: application/xml
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Length: 119
-2016-09-20 14:43:46,989 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
-2016-09-20 14:43:46,990 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
-2016-09-20 14:43:46,990 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&lt;item id=&quot;0&quot;&gt;&lt;item_name&gt;Cup&lt;/item_name&gt;&lt;price&gt;8.5&lt;/price&gt;&lt;/item&gt;&quot;
-2016-09-20 14:43:47,021 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 201 Created[\r][\n]&quot;
-2016-09-20 14:43:47,021 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Location: http://localhost:10000/services/item/1[\r][\n]&quot;
-2016-09-20 14:43:47,021 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 0[\r][\n]&quot;
-2016-09-20 14:43:47,021 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
-2016-09-20 14:43:47,021 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:47,022 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 201 Created
-2016-09-20 14:43:47,022 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 201 Created
-2016-09-20 14:43:47,022 [main] DEBUG org.apache.http.headers  - &lt;&lt; Location: http://localhost:10000/services/item/1
-2016-09-20 14:43:47,022 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 0
-2016-09-20 14:43:47,022 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
-2016-09-20 14:43:47,022 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
-2016-09-20 14:43:47,022 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@33990a0c
-2016-09-20 14:43:47,022 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
-2016-09-20 14:43:47,023 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
-2016-09-20 14:43:47,023 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Stale connection check
-2016-09-20 14:43:47,024 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
-2016-09-20 14:43:47,024 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
-2016-09-20 14:43:47,024 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
-2016-09-20 14:43:47,024 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
-2016-09-20 14:43:47,024 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
-2016-09-20 14:43:47,024 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: GET /services/item/1 HTTP/1.1
-2016-09-20 14:43:47,024 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;GET /services/item/1 HTTP/1.1[\r][\n]&quot;
-2016-09-20 14:43:47,024 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept: application/xml[\r][\n]&quot;
-2016-09-20 14:43:47,024 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
-2016-09-20 14:43:47,024 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
-2016-09-20 14:43:47,025 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
-2016-09-20 14:43:47,025 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:47,025 [main] DEBUG org.apache.http.headers  - &gt;&gt; GET /services/item/1 HTTP/1.1
-2016-09-20 14:43:47,025 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept: application/xml
-2016-09-20 14:43:47,025 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
-2016-09-20 14:43:47,025 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
-2016-09-20 14:43:47,025 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
-2016-09-20 14:43:47,045 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 500 Server Error[\r][\n]&quot;
-2016-09-20 14:43:47,045 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Type: text/html; charset=ISO-8859-1[\r][\n]&quot;
-2016-09-20 14:43:47,045 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Cache-Control: must-revalidate,no-cache,no-store[\r][\n]&quot;
-2016-09-20 14:43:47,045 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 13321[\r][\n]&quot;
-2016-09-20 14:43:47,045 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
-2016-09-20 14:43:47,045 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
-2016-09-20 14:43:47,046 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 500 Server Error
-2016-09-20 14:43:47,046 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 500 Server Error
-2016-09-20 14:43:47,046 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Type: text/html; charset=ISO-8859-1
-2016-09-20 14:43:47,046 [main] DEBUG org.apache.http.headers  - &lt;&lt; Cache-Control: must-revalidate,no-cache,no-store
-2016-09-20 14:43:47,046 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 13321
-2016-09-20 14:43:47,046 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
-2016-09-20 14:43:47,046 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;html&gt;[\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;head&gt;[\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=ISO-8859-1&quot;/&gt;[\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;title&gt;Error 500 Server Error&lt;/title&gt;[\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/head&gt;[\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;body&gt;&lt;h2&gt;HTTP ERROR 500&lt;/h2&gt;[\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;p&gt;Problem accessing /services/item/1. Reason:[\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;pre&gt;    Server Error&lt;/pre&gt;&lt;/p&gt;&lt;h3&gt;Caused by:&lt;/h3&gt;&lt;pre&gt;org.jboss.resteasy.spi.UnhandledException: java.lang.IllegalArgumentException: Provided id of the wrong type for class nz.ac.auckland.purchaseItems.Item. Expected: class java.lang.Long, got class java.lang.Integer[\r][\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ExceptionHandler.handleApplicationException(ExceptionHandler.java:76)[\r][\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ExceptionHandler.handleException(ExceptionHandler.java:212)[\r][\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.writeException(SynchronousDispatcher.java:166)[\r][\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:393)[\r][\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:200)[\r][\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.ServletContainerDispatcher.serv&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;ice(ServletContainerDispatcher.java:220)[\r][\n]&quot;
-2016-09-20 14:43:47,047 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:56)[\r][\n]&quot;
-2016-09-20 14:43:47,048 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:51)[\r]&quot;
-2016-09-20 14:43:47,062 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\n]&quot;
-2016-09-20 14:43:47,062 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)[\r][\n]&quot;
-2016-09-20 14:43:47,062 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:698)[\r][\n]&quot;
-2016-09-20 14:43:47,063 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:519)[\r][\n]&quot;
-2016-09-20 14:43:47,063 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:138)[\r][\n]&quot;
-2016-09-20 14:43:47,063 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:564)[\r][\n]&quot;
-2016-09-20 14:43:47,063 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:213)[\r][\n]&quot;
-2016-09-20 14:43:47,063 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1097)[\r][\n]&quot;
-2016-09-20 14:43:47,063 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:446)[\r][\n]&quot;
-2016-09-20 14:43:47,063 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:175)[\r][\n]&quot;
-2016-09-20 14:43:47,063 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1031)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:200)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;server.handler.HandlerCollection.handle(HandlerCollection.java:109)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.Server.handle(Server.java:445)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:269)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:229)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.io.AbstractConnection$ReadCallback.run(AbstractConnection.java:358)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:601)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:532)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.Thread.run(Thread.java:745)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Caused by: java.lang.IllegalArgumentException: Provided id of the wrong type for class nz.ac.auckland.purchaseItems.Item. Expected: class java.lang.Long, got class java.lang.Integer[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.spi.AbstractEntityManagerImpl.find(AbstractEntityManagerImpl.java:1100)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.spi.AbstractEntityManagerImpl.find(AbstractEntityMana&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;gerImpl.java:1033)[\r][\n]&quot;
-2016-09-20 14:43:47,064 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at nz.ac.auckland.services.ItemResource.getItem(ItemResource.java:77)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.reflect.Method.invoke(Method.java:498)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:137)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:296)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:250)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:237)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:377)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]... 25 more[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Caused by: org.hibernate.TypeMismatchException: Provided id of the wrong type for class nz.ac.auckland.purchaseItems.Item. Expected: class java.lang.Long, got class java.lan&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;g.Integer[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.event.internal.DefaultLoadEventListener.checkIdClass(DefaultLoadEventListener.java:166)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:86)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1142)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl.access$2600(SessionImpl.java:167)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2762)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2741)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl.get(SessionImpl.java:978)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.spi.AbstractEntityManagerImpl.find(AbstractEntityManagerImpl.java:1075)[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]... 36 more[\r][\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/pre&gt;[\n]&quot;
-2016-09-20 14:43:47,065 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;h3&gt;Caused by:&lt;/h3&gt;&lt;pre&gt;java.lang.IllegalArgumentException: Provided id of the wrong type for class nz.ac.auckland.purchaseItems.Item. Expected: class java.lang.Long, got class java.lang.Integer[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.spi.AbstractEntityManagerImpl.find(AbstractEntityManagerImpl.java:1100)[\r]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.spi.AbstractEntityManagerImpl.find(AbstractEntityManagerImpl.java:1033)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at nz.ac.auckland.services.ItemResource.getItem(ItemResource.java:77)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.reflect.Method.invoke(Method.java:498)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:137)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:296)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:250)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:237)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:377)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:200)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteas&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;y.plugins.server.servlet.ServletContainerDispatcher.service(ServletContainerDispatcher.java:220)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:56)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:51)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:698)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:519)[\r][\n]&quot;
-2016-09-20 14:43:47,066 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:138)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:564)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:213)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1097)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:446)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHan&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;dler.java:175)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1031)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.java:200)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.Server.handle(Server.java:445)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:269)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:229)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.io.AbstractConnection$ReadCallback.run(AbstractConnection.java:358)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:601)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:532)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.Thread.run(Thread.java:745)[\r][\n]&quot;
-2016-09-20 14:43:47,067 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Caused by: org.hibernate.TypeMismatchExc&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;eption: Provided id of the wrong type for class nz.ac.auckland.purchaseItems.Item. Expected: class java.lang.Long, got class java.lang.Integer[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.event.internal.DefaultLoadEventListener.checkIdClass(DefaultLoadEventListener.java:166)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:86)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1142)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl.access$2600(SessionImpl.java:167)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2762)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2741)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl.get(SessionImpl.java:978)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.spi.AbstractEntityManagerImpl.find(AbstractEntityManagerImpl.java:1075)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]... 36 more[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/pre&gt;[\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;h3&gt;Caused by:&lt;/h3&gt;&lt;pre&gt;org.hibernate.TypeMismatchException: Provided id of the wrong type for class nz.ac.auckland.purchaseItems.Item. Expected: class java.&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;lang.Long, got class java.lang.Integer[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.event.internal.DefaultLoadEventListener.checkIdClass(DefaultLoadEventListener.java:166)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:86)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1142)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl.access$2600(SessionImpl.java:167)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2762)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2741)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.internal.SessionImpl.get(SessionImpl.java:978)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.spi.AbstractEntityManagerImpl.find(AbstractEntityManagerImpl.java:1075)[\r][\n]&quot;
-2016-09-20 14:43:47,068 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.hibernate.jpa.spi.AbstractEntityManagerImpl.find(AbstractEntityManagerImpl.java:1033)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at nz.ac.auckland.services.ItemResource.getItem(ItemResource.java:77)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.NativeMethodAccessorImpl.invoke(Na&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;tiveMethodAccessorImpl.java:62)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.reflect.Method.invoke(Method.java:498)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.MethodInjectorImpl.invoke(MethodInjectorImpl.java:137)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invokeOnTarget(ResourceMethodInvoker.java:296)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:250)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:237)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:377)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.core.SynchronousDispatcher.invoke(SynchronousDispatcher.java:200)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.ServletContainerDispatcher.service(ServletContainerDispatcher.java:220)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(HttpServletDispatcher.java:56)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher.service(H&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;ttpServletDispatcher.java:51)[\r][\n]&quot;
-2016-09-20 14:43:47,069 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at javax.servlet.http.HttpServlet.service(HttpServlet.java:848)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:698)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:519)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:138)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:564)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:213)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1097)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:446)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:175)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1031)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:136)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.ContextHandlerCollection.handle(ContextHandlerCollection.jav&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;a:200)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerCollection.handle(HandlerCollection.java:109)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:97)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.Server.handle(Server.java:445)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:269)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:229)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.io.AbstractConnection$ReadCallback.run(AbstractConnection.java:358)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:601)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at org.eclipse.jetty.util.thread.QueuedThreadPool$3.run(QueuedThreadPool.java:532)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[0x9]at java.lang.Thread.run(Thread.java:745)[\r][\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/pre&gt;[\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;hr&gt;&lt;i&gt;&lt;small&gt;Powered by Jetty://&lt;/small&gt;&lt;/i&gt;&lt;hr/&gt;[\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/body&gt;[\n]&quot;
-2016-09-20 14:43:47,070 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;&lt;/html&gt;[\n]&quot;
-2016-09-20 14:43:47,071 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@4de4b452
-2016-09-20 14:43:47,071 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
+    <system-out>2016-09-20 18:21:36,105 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
+2016-09-20 18:21:36,116 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnectionOperator  - Connecting to localhost:10000
+2016-09-20 18:21:36,131 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
+2016-09-20 18:21:36,140 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
+2016-09-20 18:21:36,140 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
+2016-09-20 18:21:36,140 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
+2016-09-20 18:21:36,140 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
+2016-09-20 18:21:36,140 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: POST /services/category HTTP/1.1
+2016-09-20 18:21:36,141 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;POST /services/category HTTP/1.1[\r][\n]&quot;
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Type: application/xml[\r][\n]&quot;
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Length: 120[\r][\n]&quot;
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.headers  - &gt;&gt; POST /services/category HTTP/1.1
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Type: application/xml
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Length: 120
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
+2016-09-20 18:21:36,142 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
+2016-09-20 18:21:36,143 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&lt;category id=&quot;0&quot;&gt;&lt;category-name&gt;Garden&lt;/category-name&gt;&lt;/category&gt;&quot;
+2016-09-20 18:21:36,330 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 201 Created[\r][\n]&quot;
+2016-09-20 18:21:36,332 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Location: http://localhost:10000/services/category/1[\r][\n]&quot;
+2016-09-20 18:21:36,332 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 0[\r][\n]&quot;
+2016-09-20 18:21:36,332 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
+2016-09-20 18:21:36,332 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
+2016-09-20 18:21:36,332 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 201 Created
+2016-09-20 18:21:36,333 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 201 Created
+2016-09-20 18:21:36,333 [main] DEBUG org.apache.http.headers  - &lt;&lt; Location: http://localhost:10000/services/category/1
+2016-09-20 18:21:36,333 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 0
+2016-09-20 18:21:36,333 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
+2016-09-20 18:21:36,335 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
+2016-09-20 18:21:36,343 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@306cf3ea
+2016-09-20 18:21:36,344 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
+2016-09-20 18:21:36,356 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
+2016-09-20 18:21:36,356 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Stale connection check
+2016-09-20 18:21:36,357 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
+2016-09-20 18:21:36,357 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
+2016-09-20 18:21:36,357 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
+2016-09-20 18:21:36,357 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
+2016-09-20 18:21:36,357 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
+2016-09-20 18:21:36,357 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: POST /services/item HTTP/1.1
+2016-09-20 18:21:36,357 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;POST /services/item HTTP/1.1[\r][\n]&quot;
+2016-09-20 18:21:36,357 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
+2016-09-20 18:21:36,357 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Type: application/xml[\r][\n]&quot;
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Length: 122[\r][\n]&quot;
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.headers  - &gt;&gt; POST /services/item HTTP/1.1
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Type: application/xml
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Length: 122
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
+2016-09-20 18:21:36,358 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&lt;item id=&quot;0&quot;&gt;&lt;item_name&gt;spade&lt;/item_name&gt;&lt;price&gt;30.0&lt;/price&gt;&lt;/item&gt;&quot;
+2016-09-20 18:21:36,387 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 201 Created[\r][\n]&quot;
+2016-09-20 18:21:36,387 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Location: http://localhost:10000/services/item/1[\r][\n]&quot;
+2016-09-20 18:21:36,387 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 0[\r][\n]&quot;
+2016-09-20 18:21:36,387 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
+2016-09-20 18:21:36,387 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
+2016-09-20 18:21:36,387 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 201 Created
+2016-09-20 18:21:36,387 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 201 Created
+2016-09-20 18:21:36,387 [main] DEBUG org.apache.http.headers  - &lt;&lt; Location: http://localhost:10000/services/item/1
+2016-09-20 18:21:36,387 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 0
+2016-09-20 18:21:36,387 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
+2016-09-20 18:21:36,388 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
+2016-09-20 18:21:36,388 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@74455848
+2016-09-20 18:21:36,388 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
+2016-09-20 18:21:36,388 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
+2016-09-20 18:21:36,389 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Stale connection check
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: POST /services/item HTTP/1.1
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;POST /services/item HTTP/1.1[\r][\n]&quot;
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Type: application/xml[\r][\n]&quot;
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Length: 123[\r][\n]&quot;
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.headers  - &gt;&gt; POST /services/item HTTP/1.1
+2016-09-20 18:21:36,390 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
+2016-09-20 18:21:36,391 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Type: application/xml
+2016-09-20 18:21:36,391 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Length: 123
+2016-09-20 18:21:36,391 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
+2016-09-20 18:21:36,391 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
+2016-09-20 18:21:36,391 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&lt;item id=&quot;0&quot;&gt;&lt;item_name&gt;shovel&lt;/item_name&gt;&lt;price&gt;35.0&lt;/price&gt;&lt;/item&gt;&quot;
+2016-09-20 18:21:36,396 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 201 Created[\r][\n]&quot;
+2016-09-20 18:21:36,396 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Location: http://localhost:10000/services/item/2[\r][\n]&quot;
+2016-09-20 18:21:36,396 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 0[\r][\n]&quot;
+2016-09-20 18:21:36,397 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
+2016-09-20 18:21:36,397 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
+2016-09-20 18:21:36,397 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 201 Created
+2016-09-20 18:21:36,397 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 201 Created
+2016-09-20 18:21:36,397 [main] DEBUG org.apache.http.headers  - &lt;&lt; Location: http://localhost:10000/services/item/2
+2016-09-20 18:21:36,397 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 0
+2016-09-20 18:21:36,397 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
+2016-09-20 18:21:36,397 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
+2016-09-20 18:21:36,397 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@3738449f
+2016-09-20 18:21:36,397 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
+2016-09-20 18:21:36,398 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
+2016-09-20 18:21:36,398 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Stale connection check
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: POST /services/item HTTP/1.1
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;POST /services/item HTTP/1.1[\r][\n]&quot;
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Type: application/xml[\r][\n]&quot;
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Content-Length: 125[\r][\n]&quot;
+2016-09-20 18:21:36,399 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
+2016-09-20 18:21:36,400 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
+2016-09-20 18:21:36,401 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
+2016-09-20 18:21:36,401 [main] DEBUG org.apache.http.headers  - &gt;&gt; POST /services/item HTTP/1.1
+2016-09-20 18:21:36,401 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
+2016-09-20 18:21:36,401 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Type: application/xml
+2016-09-20 18:21:36,401 [main] DEBUG org.apache.http.headers  - &gt;&gt; Content-Length: 125
+2016-09-20 18:21:36,401 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
+2016-09-20 18:21:36,401 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
+2016-09-20 18:21:36,401 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;yes&quot;?&gt;&lt;item id=&quot;0&quot;&gt;&lt;item_name&gt;tractor&lt;/item_name&gt;&lt;price&gt;130.0&lt;/price&gt;&lt;/item&gt;&quot;
+2016-09-20 18:21:36,407 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 201 Created[\r][\n]&quot;
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Location: http://localhost:10000/services/item/3[\r][\n]&quot;
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 0[\r][\n]&quot;
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 201 Created
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 201 Created
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.headers  - &lt;&lt; Location: http://localhost:10000/services/item/3
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 0
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@c333c60
+2016-09-20 18:21:36,408 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
+2016-09-20 18:21:36,409 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Get connection for route {}-&gt;http://localhost:10000
+2016-09-20 18:21:36,409 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Stale connection check
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.client.protocol.RequestAddCookies  - CookieSpec selected: best-match
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.client.protocol.RequestAuthCache  - Auth cache not set in the context
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.client.protocol.RequestTargetAuthentication  - Target auth state: UNCHALLENGED
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.client.protocol.RequestProxyAuthentication  - Proxy auth state: UNCHALLENGED
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Attempt 1 to execute request
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Sending request: GET /services/item?from=29&amp;to=50 HTTP/1.1
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;GET /services/item?from=29&amp;to=50 HTTP/1.1[\r][\n]&quot;
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept: application/xml[\r][\n]&quot;
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Accept-Encoding: gzip, deflate[\r][\n]&quot;
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Host: localhost:10000[\r][\n]&quot;
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;Connection: Keep-Alive[\r][\n]&quot;
+2016-09-20 18:21:36,412 [main] DEBUG org.apache.http.wire  -  &gt;&gt; &quot;[\r][\n]&quot;
+2016-09-20 18:21:36,413 [main] DEBUG org.apache.http.headers  - &gt;&gt; GET /services/item?from=29&amp;to=50 HTTP/1.1
+2016-09-20 18:21:36,413 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept: application/xml
+2016-09-20 18:21:36,413 [main] DEBUG org.apache.http.headers  - &gt;&gt; Accept-Encoding: gzip, deflate
+2016-09-20 18:21:36,413 [main] DEBUG org.apache.http.headers  - &gt;&gt; Host: localhost:10000
+2016-09-20 18:21:36,413 [main] DEBUG org.apache.http.headers  - &gt;&gt; Connection: Keep-Alive
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;HTTP/1.1 405 Method Not Allowed[\r][\n]&quot;
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Allow: POST, OPTIONS[\r][\n]&quot;
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Content-Length: 0[\r][\n]&quot;
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;Server: Jetty(9.0.6.v20130930)[\r][\n]&quot;
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.wire  -  &lt;&lt; &quot;[\r][\n]&quot;
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.impl.conn.DefaultClientConnection  - Receiving response: HTTP/1.1 405 Method Not Allowed
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.headers  - &lt;&lt; HTTP/1.1 405 Method Not Allowed
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.headers  - &lt;&lt; Allow: POST, OPTIONS
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.headers  - &lt;&lt; Content-Length: 0
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.headers  - &lt;&lt; Server: Jetty(9.0.6.v20130930)
+2016-09-20 18:21:36,420 [main] DEBUG org.apache.http.impl.client.DefaultHttpClient  - Connection can be kept alive indefinitely
+2016-09-20 18:21:36,422 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@2bfc268b
+2016-09-20 18:21:36,422 [main] DEBUG org.apache.http.impl.conn.BasicClientConnectionManager  - Connection can be kept alive indefinitely
 </system-out>
   </testcase>
 </testsuite>
