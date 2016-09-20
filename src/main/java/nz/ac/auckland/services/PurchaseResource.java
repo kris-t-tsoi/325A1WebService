@@ -39,7 +39,7 @@ public class PurchaseResource {
 	
 	
 	@POST
-	@Consumes("{application/xml}")
+	@Consumes("application/xml")
 	public Response createPurchase(PurchaseDTO dto) {
 		EntityManager em = entityManagerFactory.createEntityManager();		
 		em.getTransaction().begin();

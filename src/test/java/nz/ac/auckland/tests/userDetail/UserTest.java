@@ -19,6 +19,7 @@ import org.omg.PortableInterceptor.SUCCESSFUL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import nz.ac.auckland.dto.CategoryDTO;
 import nz.ac.auckland.dto.ItemDTO;
 import nz.ac.auckland.dto.PurchaseDTO;
 import nz.ac.auckland.dto.UserDTO;
@@ -37,19 +38,12 @@ public class UserTest {
 	private static final String PURCHASE_WEB_SERVICE_URI = "http://localhost:10000/services/purchase";
 	private static final String USER_WEB_SERVICE_URI = "http://localhost:10000/services/user";
 	private static final String ITEM_WEB_SERVICE_URI = "http://localhost:10000/services/item";
+	private static final String CATEGORY_WEB_SERVICE_URI = "http://localhost:10000/services/category";
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserTest.class);	
 //	static Client client = ClientBuilder.newClient();
 
-	
-	@Before
-	public void beforeTest() {
-	    
-	}
-	
-	
-	
-	
+
 	//honestly idk what is going on, it works sometimes but not other times
 	//sometimes it cant find the path and other times it when trying to access the object created
 	//the id used (the id of the object) can not find the object created
@@ -88,63 +82,127 @@ public class UserTest {
 	}
 	
 	@Test
-	public void testSingleItemPurchase(){
+	public void CreateItemTest() {		
 		Client client = ClientBuilder.newClient();
 		
+		ItemDTO dto = new ItemDTO("Cup", 8.50);
 		
-		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
-		User user = new User("soCool", "Cool", "So", address, address);
+		logger.debug("Open connection to write Item");
 		
-		Response userResponse = client
-				.target(USER_WEB_SERVICE_URI).request()
-				.post(Entity.xml(UserMapper.toDTO(user)));
-		
-		userResponse.close();
-		
-		List<Item> it = new ArrayList<Item>();
-		Item i = new Item("Toothbrush", 5);
-		ItemDTO itdto = ItemMapper.toDTO(i);
-		
-		Response itemResponse = client
-				.target(ITEM_WEB_SERVICE_URI).request()
-				.post(Entity.xml(itdto));
-		
-		itemResponse.close();
-		
-
-		it.add(i);
-		
-		Purchase pur = new Purchase(user, it);
-		
-		PurchaseDTO dto = PurchaseMapper.toDTO(pur);
-				
 		Response response = client
-				.target(PURCHASE_WEB_SERVICE_URI).request()
+				.target(ITEM_WEB_SERVICE_URI).request()
 				.post(Entity.xml(dto));
-				
+
+
 		if (response.getStatus() != 201) {
-			fail("Failed to create new purchase");
+			fail("Failed to create new ITem");
 		}
 		
-		String location = response.getLocation().toString();
-		response.close();
-		
 
-		// Check entry was created
-		PurchaseDTO FromService = client.target(location).request()
-				.accept("application/xml").get(PurchaseDTO.class);
-		
-		// Check purchase details
-		assertEquals(dto.getBuyer().getId(), FromService.getBuyer().getId());
-		assertEquals(dto.getItems(), FromService.getItems());
-//		assertEquals(dto.getLastName(), FromService.getLastName());
-		
+		String location = response.getLocation().toString();
+		logger.debug("location: "+location);
+		response.close();
+				
+
+		// Check for new user
+		ItemDTO FromService = client.target(location).request()
+				.accept("application/xml").get(ItemDTO.class);
+
+		// Check user details
+		assertEquals(dto.getName(), FromService.getName());
+		assertEquals(dto.getPrice(), FromService.getPrice());
 	}
 	
 	@Test
-	public void testAddItemToPurchase(){
+	public void CreateCateogryTest() {		
+		Client client = ClientBuilder.newClient();
 		
+		CategoryDTO dto = new CategoryDTO("House Hold");
+		
+		logger.debug("Open connection to write category");
+		
+		Response response = client
+				.target(CATEGORY_WEB_SERVICE_URI).request()
+				.post(Entity.xml(dto));
+
+
+		if (response.getStatus() != 201) {
+			fail("Failed to create new Category");
+		}
+		
+
+		String location = response.getLocation().toString();
+		logger.debug("location: "+location);
+		response.close();
+				
+
+		// Check for new user
+		CategoryDTO FromService = client.target(location).request()
+				.accept("application/xml").get(CategoryDTO.class);
+
+		// Check user details
+		assertEquals(dto.getName(), FromService.getName());
 	}
+	
+//	
+//	@Test
+//	public void testSingleItemPurchase(){
+//		Client client = ClientBuilder.newClient();
+//		
+//		
+//		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
+//		User user = new User("soCool", "Cool", "So", address, address);
+//		
+//		Response userResponse = client
+//				.target(USER_WEB_SERVICE_URI).request()
+//				.post(Entity.xml(UserMapper.toDTO(user)));
+//		
+//		userResponse.close();
+//		
+//		List<Item> it = new ArrayList<Item>();
+//		Item i = new Item("Toothbrush", 5);
+//		ItemDTO itdto = ItemMapper.toDTO(i);
+//		
+//		Response itemResponse = client
+//				.target(ITEM_WEB_SERVICE_URI).request()
+//				.post(Entity.xml(itdto));
+//		
+//		itemResponse.close();
+//		
+//
+//		it.add(i);
+//		
+//		Purchase pur = new Purchase(user, it);
+//		
+//		PurchaseDTO dto = PurchaseMapper.toDTO(pur);
+//				
+//		Response response = client
+//				.target(PURCHASE_WEB_SERVICE_URI).request()
+//				.post(Entity.xml(dto));
+//				
+//		if (response.getStatus() != 201) {
+//			fail("Failed to create new purchase");
+//		}
+//		
+//		String location = response.getLocation().toString();
+//		response.close();
+//		
+//
+//		// Check entry was created
+//		PurchaseDTO FromService = client.target(location).request()
+//				.accept("application/xml").get(PurchaseDTO.class);
+//		
+//		// Check purchase details
+//		assertEquals(dto.getBuyer().getId(), FromService.getBuyer().getId());
+//		assertEquals(dto.getItems(), FromService.getItems());
+////		assertEquals(dto.getLastName(), FromService.getLastName());
+//		
+//	}
+//	
+//	@Test
+//	public void testAddItemToPurchase(){
+//		
+//	}
 	
 
 }

@@ -33,7 +33,7 @@ public class ItemResource {
 	
 	
 	@POST
-	@Consumes("{application/xml}")
+	@Consumes("application/xml")
 	public Response createItem(ItemDTO dto) {
 		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();

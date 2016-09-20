@@ -27,7 +27,7 @@ public class CategoryResource {
 	EntityManager em = entityManagerFactory.createEntityManager();
 	
 	@POST
-	@Consumes("{application/xml}")
+	@Consumes("application/xml")
 	public Response createCategory(CategoryDTO dto) {		
 		em.getTransaction().begin();
 		Category cat = CategoryMapper.toDomainModel(dto);

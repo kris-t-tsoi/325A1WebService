@@ -26,7 +26,7 @@ public class CategoryDTO {
 	
 	protected CategoryDTO(){}
 	
-	protected CategoryDTO(String name) {
+	public CategoryDTO(String name) {
 		this(0,name);
 	}
 
