@@ -1,4 +1,4 @@
-package nz.ac.auckland.services.user;
+package nz.ac.auckland.services;
 
 import nz.ac.auckland.dto.UserDTO;
 import nz.ac.auckland.userDetail.User;
@@ -6,8 +6,8 @@ import nz.ac.auckland.userDetail.User;
 public class UserMapper {
 	
 	static User toDomainModel(UserDTO dto){
-		User user = new User(Long.parseLong(dto.getId()),dto.getUserName(), 
-				dto.getFirstName(),dto.getLastName(),
+		User user = new User(Long.parseLong(dto.getId()),dto.getUserName()
+				,dto.getLastName(), dto.getFirstName(),
 				dto.getBillingAddress(),dto.getShippingAddress());
 		return user;
 	}

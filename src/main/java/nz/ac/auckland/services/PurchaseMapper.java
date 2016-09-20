@@ -1,4 +1,4 @@
-package nz.ac.auckland.services.purchase;
+package nz.ac.auckland.services;
 
 import java.util.ArrayList;
 

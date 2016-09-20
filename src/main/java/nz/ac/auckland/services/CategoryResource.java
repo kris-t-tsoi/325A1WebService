@@ -1,4 +1,4 @@
-package nz.ac.auckland.services.category;
+package nz.ac.auckland.services;
 
 import java.net.URI;
 
@@ -17,7 +17,6 @@ import javax.ws.rs.core.Response;
 import nz.ac.auckland.dto.CategoryDTO;
 import nz.ac.auckland.dto.UserDTO;
 import nz.ac.auckland.purchaseItems.Category;
-import nz.ac.auckland.services.user.UserMapper;
 import nz.ac.auckland.userDetail.Address;
 import nz.ac.auckland.userDetail.User;
 

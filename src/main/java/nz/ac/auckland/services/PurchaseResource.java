@@ -1,4 +1,4 @@
-package nz.ac.auckland.services.purchase;
+package nz.ac.auckland.services;
 
 import java.io.InputStream;
 import java.net.URI;
@@ -27,8 +27,6 @@ import nz.ac.auckland.dto.PurchaseDTO;
 import nz.ac.auckland.dto.UserDTO;
 import nz.ac.auckland.purchaseItems.Item;
 import nz.ac.auckland.purchaseItems.Purchase;
-import nz.ac.auckland.services.user.UserMapper;
-import nz.ac.auckland.services.user.UserResource;
 import nz.ac.auckland.userDetail.Address;
 import nz.ac.auckland.userDetail.User;
 
@@ -38,12 +36,13 @@ public class PurchaseResource {
 	private static Logger logger = LoggerFactory.getLogger(PurchaseResource.class);
 	
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("shoppingPU");
-	EntityManager em = entityManagerFactory.createEntityManager();
+	
 	
 	@POST
 	@Consumes("{application/xml}")
-	public Response createPurchase(PurchaseDTO dto) {	
-		logger.info("Create account with id: " + dto.getId());
+	public Response createPurchase(PurchaseDTO dto) {
+		EntityManager em = entityManagerFactory.createEntityManager();
+		logger.info("Create purchase with id: " + dto.getId());
 		
 		em.getTransaction().begin();
 		Purchase pur = PurchaseMapper.toDomainModel(dto);
@@ -52,8 +51,9 @@ public class PurchaseResource {
 		logger.info("Add purchase to user with id purchase history: " + pur.getBuyer().getId());
 		User user = em.find(User.class, pur.getBuyer().getId());
 		user.addPurchase(pur);
+		
 		em.persist(pur);
-		em.persist(pur);
+		em.persist(user);
 		em.getTransaction().commit();
 		em.close();
 
@@ -65,11 +65,12 @@ public class PurchaseResource {
 	@GET
 	@Path("{id}")
 	@Produces("application/xml")
-	public PurchaseDTO getPurchase(@PathParam("id") long id) {
-		
+	public PurchaseDTO getPurchase(@PathParam("id") int id) {
+		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
 		
-		Purchase pur = em.find(Purchase.class, id);
+		Purchase pur = em.find(Purchase.class, (long)id);
+		logger.debug("Read purchase: " + pur);
 		
 		if(pur == null){
 			// Return a HTTP 404 response if the specified Parolee isn't found.
@@ -87,7 +88,7 @@ public class PurchaseResource {
 	@Path("{id}")
 	@Produces("application/xml")
 	public UserDTO getPurchaseOwner(@PathParam("id") long id) {
-		
+		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
 		
 		Purchase pur = em.find(Purchase.class, id);
@@ -105,55 +106,5 @@ public class PurchaseResource {
 		return dto;		
 	}
 	
-	
 
-//	
-//	protected Purchase readPurchase(InputStream is) {
-//		try {
-//			DocumentBuilder builder = DocumentBuilderFactory.newInstance()
-//					.newDocumentBuilder();
-//			Document doc = builder.parse(is);
-//			Element root = doc.getDocumentElement();
-//
-//			Purchase p = new Purchase();
-//			if (root.getAttribute("id") != null
-//					&& !root.getAttribute("id").trim().equals(""))
-//				p.setId(Integer.valueOf(root.getAttribute("id")));
-//			NodeList nodes = root.getChildNodes();
-//			for (int i = 0; i < nodes.getLength(); i++) {
-//				Element element = (Element) nodes.item(i);
-//				if (element.getTagName().equals("buyer")) {
-//					User use = new User();
-//					use.setId(Integer.valueOf(element.getAttribute("id")));
-//					p.setBuyer(use);
-//				}else if (element.getTagName().equals("items")) {
-//					NodeList subnodes = element.getChildNodes();//item objects
-//					for(int j=0;j<subnodes.getLength();j++){
-//						Element current = (Element) subnodes.item(j);//item object
-//////						if (current.getAttribute("id") != null
-//////								&& !current.getAttribute("id").trim().equals("")){	
-//////							NodeList subsubNode = current.getChildNodes();
-//////							for(int k=0; k<subsubNode.getLength();k++){
-//////								if (element.getTagName().equals("buyer")) {
-//////									User use = new User();
-//////									use.setId(Integer.valueOf(element.getAttribute("id")));
-//////									p.setBuyer(use);
-//////								}
-////							}
-//							
-//							Item it = new Item();
-//							it.setId(Integer.valueOf(current.getAttribute("id")));							
-//					}				
-//				} else if (element.getTagName().equals("total_cost")) {
-//					p.setTotalCost(Double.valueOf(element.getTextContent()));
-//				} 
-//
-//			}
-//			return p;
-//		} catch (Exception e) {
-//			throw new WebApplicationException(e, Response.Status.BAD_REQUEST);
-//		}
-//	}
-//	
-//	
 }

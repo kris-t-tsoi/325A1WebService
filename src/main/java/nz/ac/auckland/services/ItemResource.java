@@ -1,4 +1,4 @@
-package nz.ac.auckland.services.item;
+package nz.ac.auckland.services;
 
 import java.net.URI;
 import java.util.ArrayList;

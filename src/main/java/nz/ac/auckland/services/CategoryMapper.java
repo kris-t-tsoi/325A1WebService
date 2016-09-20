@@ -1,4 +1,4 @@
-package nz.ac.auckland.services.category;
+package nz.ac.auckland.services;
 
 import nz.ac.auckland.dto.CategoryDTO;
 import nz.ac.auckland.purchaseItems.Category;

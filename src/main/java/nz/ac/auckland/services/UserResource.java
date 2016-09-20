@@ -1,4 +1,4 @@
-package nz.ac.auckland.services.user;
+package nz.ac.auckland.services;
 
 import java.io.InputStream;
 import java.net.URI;
@@ -182,68 +182,5 @@ public class UserResource {
 
 	}
 
-//
-//		
-//	/**
-//	 * Helper method to read an XML representation of a user, and return a
-//	 * corresponding user object. 
-//	 * 
-//	 * @param is the InputStream containing an XML representation of the 
-//	 *        user to create.
-//	 *        
-//	 * @return a new user object.
-//	 */
-//	protected User readUser(InputStream is) {
-//		try {
-//			DocumentBuilder builder = DocumentBuilderFactory.newInstance()
-//					.newDocumentBuilder();
-//			Document doc = builder.parse(is);
-//			Element root = doc.getDocumentElement();
-//
-//			User user = new User();
-//			if (root.getAttribute("id") != null
-//					&& !root.getAttribute("id").trim().equals(""))
-//				user.setId(Integer.valueOf(root.getAttribute("id")));
-//			NodeList nodes = root.getChildNodes();
-//			for (int i = 0; i < nodes.getLength(); i++) {
-//				Element element = (Element) nodes.item(i);
-//				if (element.getTagName().equals("user-name")) {
-//					user.setUserName(element.getTextContent());
-//				} else if (element.getTagName().equals("first-name")) {
-//					user.setFirstName(element.getTextContent());
-//				} else if (element.getTagName().equals("last-name")) {
-//					user.setLastName(element.getTextContent());
-//				}  else if (element.getTagName().equals("billing-address")) {
-//					storeAddress(user.getBillingAddress(), element);
-//				} else if (element.getTagName().equals("shipping-address")) {
-//					storeAddress(user.getShippingAddress(), element);
-//				} 
-//
-//			}
-//			return user;
-//		} catch (Exception e) {
-//			throw new WebApplicationException(e, Response.Status.BAD_REQUEST);
-//		}
-//	}
-//	
-//	private void storeAddress(Address address, Element el){
-//		NodeList subnodes = el.getChildNodes();
-//		for(int j=0; j<subnodes.getLength();j++){
-//			Element element = (Element) subnodes.item(j);
-//			if (element.getTagName().equals("street")) {
-//				address.setStreet(element.getTextContent());
-//			} else if (element.getTagName().equals("city")) {
-//				address.setCity(element.getTextContent());
-//			} else if (element.getTagName().equals("country")) {
-//				address.setCountry(element.getTextContent());
-//			}  else if (element.getTagName().equals("post-code")) {
-//				address.setPostcode(Integer.parseInt(element.getTextContent()));
-//			} 
-//			
-//		}
-//	}
-//	
-//	
-	
 	
 }
