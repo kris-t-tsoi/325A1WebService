@@ -20,6 +20,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Cookie;
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 import javax.ws.rs.core.StreamingOutput;
@@ -27,6 +28,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.persistence.*;
 
+import org.jboss.logging.Param;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
@@ -126,27 +128,28 @@ public class UserResource {
 	}
 
 	
-//	@GET
-//	@Path("/{id}")
-//	@Produces("application/xml")
-//	public UserDTO getUser(@CookieParam("id") Cookie id) {
-//		logger.info("Retrieving account with id: " + id);
-//		EntityManager em = entityManagerFactory.createEntityManager();
-//		em.getTransaction().begin();
-//		
-//		User user = em.find(User.class, id.getValue());		
-//		
-//		if(user == null){
-//			// Return a HTTP 404 response if the specified Parolee isn't found.
-//			throw new WebApplicationException(Response.Status.NOT_FOUND);
-//		}			
-//		UserDTO dto = UserMapper.toDTO(user);
-//		
-//		em.getTransaction().commit();
-//		em.close();
-//		
-//		return dto;	
-//	}
+	@GET
+	@Path("/{id}/cookie")
+	@Produces("application/xml")
+	public Response createCookie(@PathParam("id")int id) {
+//		logger.info("Retrieving account with id: " + value);
+		EntityManager em = entityManagerFactory.createEntityManager();
+		em.getTransaction().begin();
+		
+		User user = em.find(User.class,(long)id);	
+		
+		if(user == null){
+			// Return a HTTP 404 response if the specified Parolee isn't found.
+			throw new WebApplicationException(Response.Status.NOT_FOUND);
+		}			
+
+		NewCookie cookie = new NewCookie("username", user.getUserName());	
+		
+		em.getTransaction().commit();
+		em.close();
+		
+		return Response.ok().cookie(cookie).build();	
+	}
 	
 	
 	@PUT

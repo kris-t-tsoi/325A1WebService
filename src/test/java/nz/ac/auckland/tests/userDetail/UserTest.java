@@ -2,43 +2,18 @@ package nz.ac.auckland.tests.userDetail;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import javax.persistence.EntityManager;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
-import javax.ws.rs.client.Invocation.Builder;
-import javax.ws.rs.client.*;
-import javax.ws.rs.core.GenericEntity;
-import javax.ws.rs.core.GenericType;
+import javax.ws.rs.core.NewCookie;
 import javax.ws.rs.core.Response;
 
-import org.junit.Before;
 import org.junit.Test;
-import org.omg.PortableInterceptor.SUCCESSFUL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import nz.ac.auckland.dto.AddressDTO;
-import nz.ac.auckland.dto.CategoryDTO;
-import nz.ac.auckland.dto.ItemDTO;
-import nz.ac.auckland.dto.PurchaseDTO;
 import nz.ac.auckland.dto.UserDTO;
-import nz.ac.auckland.purchaseItems.Category;
-import nz.ac.auckland.purchaseItems.Item;
-import nz.ac.auckland.purchaseItems.Purchase;
-import nz.ac.auckland.services.CategoryMapper;
-import nz.ac.auckland.services.ItemMapper;
-import nz.ac.auckland.services.PurchaseMapper;
-import nz.ac.auckland.services.UserMapper;
-import nz.ac.auckland.services.UserResource;
-import nz.ac.auckland.userDetail.Address;
-import nz.ac.auckland.userDetail.PersistenceManager;
-import nz.ac.auckland.userDetail.User;
 
 public class UserTest {
 	
@@ -49,7 +24,7 @@ public class UserTest {
 	
 	private static final Logger logger = LoggerFactory.getLogger(UserTest.class);	
 
-//	
+	
 //	@Test
 //	public void CreateUserTest() {	
 //		Client client = ClientBuilder.newClient();
@@ -86,7 +61,46 @@ public class UserTest {
 //	}
 	
 	
-//	
+	
+	
+	@Test
+	public void CookieGetUserTest() {	
+		Client client = ClientBuilder.newClient();
+		
+		AddressDTO address = new AddressDTO("52 fudge Street", "Hong Kong", "Hong Kong", 6666);
+		UserDTO dto = new UserDTO("OhMyGosh", "Gosh", "Ohmy", address, address);
+		
+		logger.info("Open connection to write user");
+		
+		Response response = client
+				.target(USER_WEB_SERVICE_URI).request()
+				.post(Entity.xml(dto));
+
+
+		if (response.getStatus() != 201) {
+			response.close();
+			fail("Failed to create new User");
+		}
+		
+		String location = response.getLocation().toString();
+		logger.debug("location: "+location);
+		response.close();
+				
+
+		// Check for new user
+		UserDTO fromService = client.target(location).request()
+				.accept("application/xml").get(UserDTO.class);
+		
+		//get Cookie for user			
+		Response cookieResponse = client.target(location + "/cookie").request().get();
+		
+		assertEquals( 200,cookieResponse.getStatus());
+
+	}
+	
+	
+	
+	
 //	@Test
 //	public void CreateItemTest() {	
 //		Client client = ClientBuilder.newClient();
@@ -133,8 +147,8 @@ public class UserTest {
 //		assertEquals(dto.getPrice(), FromService.getPrice(),0);
 //	}
 //	
-	
-	
+//	
+//	
 //	@Test
 //	public void GetItemsWithinPriceTest() {	
 //		Client client = ClientBuilder.newClient();
@@ -210,8 +224,8 @@ public class UserTest {
 //		}
 //		
 //	}
-	
-	
+//	
+//	
 //	
 //	
 //		
@@ -244,112 +258,108 @@ public class UserTest {
 //
 //		assertEquals(dto.getName(), FromService.getName());
 //	}
-	
 //	
-//	
-//	
-	@Test
-	public void testSingleItemPurchase(){
-		
-		Client client = ClientBuilder.newClient();
-		
-		AddressDTO address = new AddressDTO("34 def Street", "Auckland", "New Zealand", 1111);
-		UserDTO userdto = new UserDTO("soCool", "Cool", "So", address, address);
-		
-		Response userResponse = client
-				.target(USER_WEB_SERVICE_URI).request()
-				.post(Entity.xml(userdto));
-		
-		if (userResponse.getStatus() != 201) {
-			userResponse.close();
-			fail("Failed to create new user");
-		}
-		
-		userResponse.close();
-		String userlocation = userResponse.getLocation().toString();
-		userResponse.close();
-				
-		UserDTO userdtoFromServer = client.target(userlocation).request()
-				.accept("application/xml").get(UserDTO.class);
-		
-		Category cat = new Category("Kitchen");
-		
-		logger.debug("Open connection to write category");
-		
-		Response catresponse = client
-				.target(CATEGORY_WEB_SERVICE_URI).request()
-				.post(Entity.xml(CategoryMapper.toDTO(cat)));
-
-
-		if (catresponse.getStatus() != 201) {
-			catresponse.close();
-			fail("Failed to create new Category");
-		}
-		
-
-		String catlocation = catresponse.getLocation().toString();
-		catresponse.close();
-				
-		CategoryDTO catFromServer = client.target(catlocation).request()
-				.accept("application/xml").get(CategoryDTO.class);
-		
-		Set<Category> set = new HashSet<Category>();
-		set.add(CategoryMapper.toDomainModel(catFromServer));
-		
-		List<Item> it = new ArrayList<Item>();
-		Item i = new Item("Toothbrush", 5,set);
-		ItemDTO itdto = ItemMapper.toDTO(i);
-		
-		Response itemResponse = client
-				.target(ITEM_WEB_SERVICE_URI).request()
-				.post(Entity.xml(itdto));
-		
-		
-		if (itemResponse.getStatus() != 201) {
-			userResponse.close();
-			itemResponse.close();
-			fail("Failed to create new item");
-		}	
-//		String itemlocation = itemResponse.getLocation().toString();
-		itemResponse.close();
-		
-//		ItemDTO itemFromServer = client.target(itemlocation).request()
-//				.accept("application/xml").get(ItemDTO.class);
-		
-//		it.add(ItemMapper.toDomainModel(itemFromServer));
-		it.add(i);
-		Purchase pur = new Purchase(UserMapper.toDomainModel(userdtoFromServer), it);
-		PurchaseDTO dto = PurchaseMapper.toDTO(pur);
-		
-		Response response = client
-				.target(PURCHASE_WEB_SERVICE_URI).request()
-				.post(Entity.xml(dto));
-		
-				
-		if (response.getStatus() != 201) {
-			fail("Failed to create new purchase");
-		}
-		
-		String location = response.getLocation().toString();
-		response.close();
-		
-
-		// Check entry was created
-		PurchaseDTO FromService = client.target(location).request()
-				.accept("application/xml").get(PurchaseDTO.class);
-		
-		for(ItemDTO itm: FromService.getItems()){
-			assertEquals(itm.getName(),itdto.getName());
-			assertEquals(itm.getPrice(),itdto.getPrice(),1);
-	}
-		//Check that the owner is correct
-		UserDTO userfromPurchase = client.target(location+"/user").request()
-				.accept("application/xml").get(UserDTO.class);
-		assertEquals(userdtoFromServer.getId(),userfromPurchase.getId());		
-
-	
-		
-	}
+//	@Test
+//	public void testSingleItemPurchase(){
+//		
+//		Client client = ClientBuilder.newClient();
+//		
+//		AddressDTO address = new AddressDTO("34 def Street", "Auckland", "New Zealand", 1111);
+//		UserDTO userdto = new UserDTO("soCool", "Cool", "So", address, address);
+//		
+//		Response userResponse = client
+//				.target(USER_WEB_SERVICE_URI).request()
+//				.post(Entity.xml(userdto));
+//		
+//		if (userResponse.getStatus() != 201) {
+//			userResponse.close();
+//			fail("Failed to create new user");
+//		}
+//		
+//		userResponse.close();
+//		String userlocation = userResponse.getLocation().toString();
+//		userResponse.close();
+//				
+//		UserDTO userdtoFromServer = client.target(userlocation).request()
+//				.accept("application/xml").get(UserDTO.class);
+//		
+//		Category cat = new Category("Kitchen");
+//		
+//		logger.debug("Open connection to write category");
+//		
+//		Response catresponse = client
+//				.target(CATEGORY_WEB_SERVICE_URI).request()
+//				.post(Entity.xml(CategoryMapper.toDTO(cat)));
+//
+//
+//		if (catresponse.getStatus() != 201) {
+//			catresponse.close();
+//			fail("Failed to create new Category");
+//		}
+//		
+//
+//		String catlocation = catresponse.getLocation().toString();
+//		catresponse.close();
+//				
+//		CategoryDTO catFromServer = client.target(catlocation).request()
+//				.accept("application/xml").get(CategoryDTO.class);
+//		
+//		Set<Category> set = new HashSet<Category>();
+//		set.add(CategoryMapper.toDomainModel(catFromServer));
+//		
+//		List<Item> it = new ArrayList<Item>();
+//		Item i = new Item("Toothbrush", 5,set);
+//		ItemDTO itdto = ItemMapper.toDTO(i);
+//		
+//		Response itemResponse = client
+//				.target(ITEM_WEB_SERVICE_URI).request()
+//				.post(Entity.xml(itdto));
+//		
+//		
+//		if (itemResponse.getStatus() != 201) {
+//			userResponse.close();
+//			itemResponse.close();
+//			fail("Failed to create new item");
+//		}	
+////		String itemlocation = itemResponse.getLocation().toString();
+//		itemResponse.close();
+//		
+////		ItemDTO itemFromServer = client.target(itemlocation).request()
+////				.accept("application/xml").get(ItemDTO.class);
+//		
+////		it.add(ItemMapper.toDomainModel(itemFromServer));
+//		it.add(i);
+//		Purchase pur = new Purchase(UserMapper.toDomainModel(userdtoFromServer), it);
+//		PurchaseDTO dto = PurchaseMapper.toDTO(pur);
+//		
+//		Response response = client
+//				.target(PURCHASE_WEB_SERVICE_URI).request()
+//				.post(Entity.xml(dto));
+//		
+//				
+//		if (response.getStatus() != 201) {
+//			fail("Failed to create new purchase");
+//		}
+//		
+//		String location = response.getLocation().toString();
+//		response.close();
+//		
+//
+//		// Check entry was created
+//		PurchaseDTO FromService = client.target(location).request()
+//				.accept("application/xml").get(PurchaseDTO.class);
+//		
+//		for(ItemDTO itm: FromService.getItems()){
+//			assertEquals(itm.getName(),itdto.getName());
+//			assertEquals(itm.getPrice(),itdto.getPrice(),1);
+//	}
+//		//Check that the owner is correct
+//		UserDTO userfromPurchase = client.target(location+"/user").request()
+//				.accept("application/xml").get(UserDTO.class);
+//		assertEquals(userdtoFromServer.getId(),userfromPurchase.getId());		
+//
+//		
+//	}
 	
 	
 	
