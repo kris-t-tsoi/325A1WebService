@@ -8,7 +8,16 @@ import java.util.Set;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import javax.persistence.metamodel.Metamodel;
+import javax.persistence.metamodel.Metamodel.*;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DefaultValue;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -20,6 +29,7 @@ import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.ResponseBuilder;
 
+import org.hibernate.type.EntityType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -74,19 +84,26 @@ public class ItemResource {
 		return dto;		
 	}
 	
-	//@QueryParam("from") int from,
-//	@QueryParam("to") int to,
-//	@QueryParam("orderBy") List<String> orderBy
 	
 	@GET
-	@Path("/{id}")
-//	@Produces("application/xml")
-	public Response getPriceRangeItem(@QueryParam("from") int from,@QueryParam("to")int to) {
+	public Response getPriceRangeItem(@DefaultValue("0")@QueryParam("from") int from,@DefaultValue("1000")@QueryParam("to")int to) {
 		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
-		System.err.println("before query");
-		List<Item> items  = em.createQuery("select i from ITEM i where i.price >"+from+" and i.price <"+to).getResultList( );
-		System.err.println("list size: "+items.size());
+		
+		CriteriaBuilder cb = em.getCriteriaBuilder();
+		CriteriaQuery<Item> q = cb.createQuery(Item.class);;
+		Root<Item> c = q.from(Item.class);
+		
+		if(from>to){
+			int temp=from;
+			from = to;
+			to= temp;
+		}
+		
+		q.select(c).where(cb.between(c.get("price").as(Integer.class), from, to));
+		
+		TypedQuery<Item> query = em.createQuery(q);
+		List<Item> items = query.getResultList();
 		List<ItemDTO> dto = new ArrayList<ItemDTO>();
 		for(Item i:items){
 			dto.add(ItemMapper.toDTO(i));

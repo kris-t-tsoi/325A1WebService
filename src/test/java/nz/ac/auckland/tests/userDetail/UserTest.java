@@ -198,7 +198,15 @@ public class UserTest {
 				.target(ITEM_WEB_SERVICE_URI+"?from=29&to=50").request()
 				.accept("application/xml").get(new GenericType<List<ItemDTO>>(){});
 
-		
+		for(int i=0; i<items.size();i++){
+			if(i==0){
+				assertEquals(items.get(i).getName(),dto.getName());
+				assertEquals(items.get(i).getPrice(),dto.getPrice(),1);
+			}else{
+				assertEquals(items.get(i).getName(),dto1.getName());
+				assertEquals(items.get(i).getPrice(),dto1.getPrice(),1);//delta 1 as was chaged to int
+			}
+		}
 		
 	}
 	

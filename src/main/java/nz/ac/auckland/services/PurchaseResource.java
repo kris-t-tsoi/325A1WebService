@@ -43,7 +43,7 @@ public class PurchaseResource {
 	public Response createPurchase(PurchaseDTO dto) {
 		EntityManager em = entityManagerFactory.createEntityManager();		
 		em.getTransaction().begin();
-		
+		System.err.println();
 		logger.info("Create purchase: " + dto);
 
 		Purchase pur = PurchaseMapper.toDomainModel(dto);
@@ -51,11 +51,11 @@ public class PurchaseResource {
 		em.persist(pur);
 		
 		//add purchase to user's purchase history
-		logger.info("Add purchase to user with id purchase history: " + pur.getBuyer().getId());
-		User user = em.find(User.class, pur.getBuyer().getId());
-		user.addPurchase(pur);
-		
-		em.persist(user);
+//		logger.info("Add purchase to user with id purchase history: " + pur.getBuyer().getId());
+//		User user = em.find(User.class, pur.getBuyer().getId());
+//		user.addPurchase(pur);
+//		
+//		em.persist(user);
 		em.getTransaction().commit();
 		em.close();
 
