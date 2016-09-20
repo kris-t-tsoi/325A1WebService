@@ -76,24 +76,20 @@ public class UserResource {
 	private static Logger logger = LoggerFactory.getLogger(UserResource.class);
 	
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("shoppingPU");
+	EntityManager em = entityManagerFactory.createEntityManager();
 	
 	
 
 	@GET
 	@Path("/{id}")
 	@Produces("application/xml")
-	public UserDTO getUser(@PathParam("id") int id) {
-		EntityManager em = entityManagerFactory.createEntityManager();
-
-		System.err.println("in with id: "+id);
+	public UserDTO getUser(@PathParam("id") long id) {
+		
 		em.getTransaction().begin();
 		
-		System.err.println("in with id");
+		logger.debug("Read parolee: " + user);
 		
-		
-		logger.debug("Find user with id: " + id);
-		
-		User user = em.find(User.class, (long)id);
+		User user = em.find(User.class, id);
 		
 		if(user == null){
 			// Return a HTTP 404 response if the specified Parolee isn't found.
@@ -110,8 +106,7 @@ public class UserResource {
 	
 	@POST
 	@Consumes("application/xml")
-	public Response createUser(UserDTO user) {	
-		EntityManager em = entityManagerFactory.createEntityManager();
+	public Response createUser(UserDTO user) {		
 		em.getTransaction().begin();	
 		
 		logger.debug("Read user: " + user);
@@ -126,7 +121,7 @@ public class UserResource {
 		em.getTransaction().commit();
 		em.close();
 
-		return Response.created(URI.create("/user/" + ur.getId()))
+		return Response.created(URI.create("/user/" + user.getId()))
 				.build();
 	}
 
@@ -136,7 +131,6 @@ public class UserResource {
 	@Path("/{id}")
 	@Produces("application/xml")
 	public UserDTO getUser(@CookieParam("id") Cookie id) {
-		EntityManager em = entityManagerFactory.createEntityManager();
 		logger.info("Retrieving account with id: " + id);
 
 		em.getTransaction().begin();
@@ -160,7 +154,7 @@ public class UserResource {
 	@Path("/{id}")
 	@Consumes("application/xml")
 	public Response updateUser(@PathParam("id") long id, User user) {	
-		EntityManager em = entityManagerFactory.createEntityManager();
+
 		em.getTransaction().begin();
 		
 		User current = em.find(User.class, id);

@@ -56,14 +56,12 @@ public class UserTest {
 		logger.debug("location: "+location);
 		response.close();
 		
-		System.err.println("before");
-		UserDTO awesomeFromService = client.target(location).request()
-				.accept("application/xml").get(UserDTO.class);
 		
-		System.err.println("after");
 //
-		
-		
+//		// Check for new user
+//		User awesomeFromService = client.target(location).request()
+//				.accept("application/xml").get(User.class);
+//
 //		// Check user details
 //		assertEquals(awesome.getLastName(), awesomeFromService.getLastName());
 //		assertEquals(awesome.getFirstName(), awesomeFromService.getFirstName());
