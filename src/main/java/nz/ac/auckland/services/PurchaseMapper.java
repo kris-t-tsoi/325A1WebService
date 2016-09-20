@@ -10,12 +10,12 @@ import nz.ac.auckland.userDetail.User;
 
 public class PurchaseMapper {
 	
-	static Purchase toDomainModel(PurchaseDTO dto){
-		Purchase pur = new Purchase(Long.parseLong(dto.getId()), dto.getBuyer(),dto.getItems());
+	public static Purchase toDomainModel(PurchaseDTO dto){
+		Purchase pur = new Purchase(dto.getId(), dto.getBuyer(),dto.getItems());
 		return pur;
 	}
 	
-	static PurchaseDTO toDTO (Purchase p){
+	public static PurchaseDTO toDTO (Purchase p){
 		PurchaseDTO dto = new PurchaseDTO(p.getId(),p.getBuyer(),p.getItems());
 		return dto;
 	}

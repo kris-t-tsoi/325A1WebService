@@ -41,18 +41,21 @@ public class PurchaseResource {
 	@POST
 	@Consumes("{application/xml}")
 	public Response createPurchase(PurchaseDTO dto) {
-		EntityManager em = entityManagerFactory.createEntityManager();
-		logger.info("Create purchase with id: " + dto.getId());
-		
+		EntityManager em = entityManagerFactory.createEntityManager();		
 		em.getTransaction().begin();
+
+		logger.info("Create purchase: " + dto);
+		
 		Purchase pur = PurchaseMapper.toDomainModel(dto);
+		logger.debug("Create purchase: " + pur);
+		em.persist(pur);
+		
 		
 		//add purchase to user's purchase history
 		logger.info("Add purchase to user with id purchase history: " + pur.getBuyer().getId());
 		User user = em.find(User.class, pur.getBuyer().getId());
 		user.addPurchase(pur);
-		
-		em.persist(pur);
+			
 		em.persist(user);
 		em.getTransaction().commit();
 		em.close();
@@ -60,6 +63,7 @@ public class PurchaseResource {
 		return Response.created(URI.create("/purchase/" + pur.getId()))
 				.build();
 	}
+
 	
 
 	@GET

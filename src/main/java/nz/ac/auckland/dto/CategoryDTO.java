@@ -2,6 +2,7 @@ package nz.ac.auckland.dto;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -16,8 +17,8 @@ import nz.ac.auckland.purchaseItems.Item;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class CategoryDTO {
 
-	@XmlID
-	private String id;
+	@XmlAttribute(name="id")
+	private long id;
 	
 	@XmlElement(name="category-name")
 	private String name;
@@ -30,12 +31,12 @@ public class CategoryDTO {
 	}
 
 	public CategoryDTO(long id,String name) {
-		this.id =Long.toString(id);
+		this.id =id;
 		this.name = name;
 	}
 
 	
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 

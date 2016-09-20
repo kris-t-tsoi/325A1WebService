@@ -17,21 +17,30 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import nz.ac.auckland.dto.ItemDTO;
 import nz.ac.auckland.purchaseItems.Category;
 import nz.ac.auckland.purchaseItems.Item;
 
 @Path("/item")
 public class ItemResource {
-
+	//Set up Logger
+	private static Logger logger = LoggerFactory.getLogger(UserResource.class);
+		
 	EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("shoppingPU");
-	EntityManager em = entityManagerFactory.createEntityManager();
+	
 	
 	@POST
 	@Consumes("{application/xml}")
-	public Response createItem(ItemDTO dto) {		
+	public Response createItem(ItemDTO dto) {
+		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
+		logger.debug("Read item: " + dto);
+		
 		Item it = ItemMapper.toDomainModel(dto);
+		logger.debug("create item: " + it);
 		em.persist(it);
 		em.getTransaction().commit();
 		em.close();
@@ -40,12 +49,29 @@ public class ItemResource {
 				.build();
 	}
 	
+	/*
+	 * 		EntityManager em = entityManagerFactory.createEntityManager();
+		em.getTransaction().begin();	
+		
+		logger.debug("Read user: " + user);
+		
+		User ur = UserMapper.toDomainModel(user);	
+		
+		logger.debug("Created user: " + ur);
+		
+		logger.debug("Path: " + ur);
+		
+		em.persist(ur);		
+		em.getTransaction().commit();
+		em.close();
+	 */
+	
 
 	@GET
 	@Path("/{id}")
 	@Produces("application/xml")
-	public ItemDTO getItem(@PathParam("id") long id) {
-		
+	public ItemDTO getItem(@PathParam("id") int id) {
+		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
 		
 		Item it = em.find(Item.class, id);
@@ -63,22 +89,23 @@ public class ItemResource {
 	}
 	
 	
-	@GET
-	@Path("/{id}")
-	@Produces("application/xml")
-	public List<Item> getAllItem(@PathParam("id") long id) {
-		em.getTransaction().begin();
-		
-		List<Item> items  = em.createQuery("select i from Item i").getResultList( );
-			
-		em.getTransaction().commit();
-		em.close();
-
-		if(items.isEmpty()|| items == null){
-			return null;
-		}
-		return items;
-	}
+//	@GET
+//	@Path("/{id}")
+//	@Produces("application/xml")
+//	public List<Item> getAllItem() {
+//		EntityManager em = entityManagerFactory.createEntityManager();
+//		em.getTransaction().begin();
+//		
+//		List<Item> items  = em.createQuery("select i from Item i").getResultList( );
+//			
+//		em.getTransaction().commit();
+//		em.close();
+//
+//		if(items.isEmpty()|| items == null){
+//			return null;
+//		}
+//		return items;
+//	}
 	
 	
 	
@@ -95,6 +122,7 @@ public class ItemResource {
 	@Path("/{id}")
 	@Produces("application/xml")
 	public List<ItemDTO> getItemsInCategory(@PathParam("id") long id) {
+		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
 		
 		List<ItemDTO> itemInCategory = new ArrayList<ItemDTO>();

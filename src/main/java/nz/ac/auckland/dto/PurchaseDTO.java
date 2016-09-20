@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -29,8 +30,8 @@ import nz.ac.auckland.userDetail.User;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class PurchaseDTO {
 	
-	@XmlID
-	private String id;
+	@XmlAttribute(name="id")
+	private long id;
 	
 	@XmlElement(name="buyer")
 	private User buyer;
@@ -49,7 +50,7 @@ public class PurchaseDTO {
 	}
 	
 	public PurchaseDTO (long id, User buyer, Collection<Item> items) {
-		this.id = Long.toString(id);
+		this.id = id;
 		this.buyer = buyer;
 		this.items = items;
 		
@@ -61,7 +62,7 @@ public class PurchaseDTO {
 	}
 	
 	
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 

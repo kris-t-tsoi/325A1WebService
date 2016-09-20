@@ -15,9 +15,9 @@ import nz.ac.auckland.userDetail.Address;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class UserDTO {
 
-		@XmlID
+//		@XmlID
 		@XmlAttribute(name="id")
-		private String id;	
+		private long id;	
 		
 		@XmlElement(name="user-name")
 		private String userName;
@@ -41,7 +41,7 @@ public class UserDTO {
 		}
 		
 		public UserDTO(long l, String username, String lastName, String firstName, Address billing, Address shipping){
-			this.id = Long.toString(l);
+			this.id = l;
 			this.userName = username;
 			this.lastName = lastName;
 			this.firstName = firstName;
@@ -65,7 +65,7 @@ public class UserDTO {
 			this.shippingAddress = shippingAddress;
 		}
 
-		public String getId() {
+		public long getId() {
 			return id;
 		}
 
@@ -109,7 +109,7 @@ public class UserDTO {
 		            toHashCode();
 		}
 
-		public void setId(String id) {
+		public void setId(long id) {
 			this.id = id;
 		}
 

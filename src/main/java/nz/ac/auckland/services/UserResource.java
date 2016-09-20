@@ -86,8 +86,6 @@ public class UserResource {
 	public UserDTO getUser(@PathParam("id") int id) {
 		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
-		System.err.println("id: "+id);
-		System.err.println("idas long: "+ (long)id);
 		logger.debug("Read user with id: " + id);
 		
 		User user = em.find(User.class, (long)id);

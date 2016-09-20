@@ -13,15 +13,19 @@ import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.Response;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.omg.PortableInterceptor.SUCCESSFUL;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import nz.ac.auckland.dto.ItemDTO;
 import nz.ac.auckland.dto.PurchaseDTO;
 import nz.ac.auckland.dto.UserDTO;
 import nz.ac.auckland.purchaseItems.Item;
+import nz.ac.auckland.purchaseItems.Purchase;
 import nz.ac.auckland.services.ItemMapper;
+import nz.ac.auckland.services.PurchaseMapper;
 import nz.ac.auckland.services.UserMapper;
 import nz.ac.auckland.services.UserResource;
 import nz.ac.auckland.userDetail.Address;
@@ -37,6 +41,15 @@ public class UserTest {
 	private static final Logger logger = LoggerFactory.getLogger(UserTest.class);	
 //	static Client client = ClientBuilder.newClient();
 
+	
+	@Before
+	public void beforeTest() {
+	    
+	}
+	
+	
+	
+	
 	//honestly idk what is going on, it works sometimes but not other times
 	//sometimes it cant find the path and other times it when trying to access the object created
 	//the id used (the id of the object) can not find the object created
@@ -74,54 +87,64 @@ public class UserTest {
 		assertEquals(awesome.getUserName(), awesomeFromService.getUserName());
 	}
 	
-//	@Test
-//	public void testSingleItemPurchase(){
-//		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
-//		User user = new User("userAwesome", "Some", "Awe", address, address);
-//		
-//		Response userResponse = client
-//				.target(USER_WEB_SERVICE_URI).request()
-//				.post(Entity.xml(UserMapper.toDTO(user)));
-//		
-//		
-//		
-//		List<Item> it = new ArrayList<Item>();
-//		Item i = new Item("Toothbrush", 5);
-//		it.add(i);
-//		
-//		Response ItemResponse = client
-//				.target(ITEM_WEB_SERVICE_URI).request()
-//				.post(Entity.xml(ItemMapper.toDTO(i)));
-//		
-//		PurchaseDTO dto = new PurchaseDTO(user, it);
-//				
-//		Response response = client
-//				.target(PURCHASE_WEB_SERVICE_URI).request()
-//				.post(Entity.xml(dto));
-//				
-//		if (response.getStatus() != 201) {
-//			fail("Failed to create new purchase");
-//		}
-//		
-//		String location = response.getLocation().toString();
-//		response.close();
-//		
-//
-//		// Check entry was created
-//		PurchaseDTO FromService = client.target(location).request()
-//				.accept("application/xml").get(PurchaseDTO.class);
-//		
-//		// Check purchase details
-//		assertEquals(dto.getBuyer().getId(), FromService.getBuyer().getId());
-//		assertEquals(dto.getItems(), FromService.getItems());
-////		assertEquals(dto.getLastName(), FromService.getLastName());
-//		
-//	}
-//	
-//	@Test
-//	public void testAddItemToPurchase(){
-//		
-//	}
-//	
+	@Test
+	public void testSingleItemPurchase(){
+		Client client = ClientBuilder.newClient();
+		
+		
+		Address address = new Address("12 abc Street", "Auckland", "New Zealand", 1111);
+		User user = new User("soCool", "Cool", "So", address, address);
+		
+		Response userResponse = client
+				.target(USER_WEB_SERVICE_URI).request()
+				.post(Entity.xml(UserMapper.toDTO(user)));
+		
+		userResponse.close();
+		
+		List<Item> it = new ArrayList<Item>();
+		Item i = new Item("Toothbrush", 5);
+		ItemDTO itdto = ItemMapper.toDTO(i);
+		
+		Response itemResponse = client
+				.target(ITEM_WEB_SERVICE_URI).request()
+				.post(Entity.xml(itdto));
+		
+		itemResponse.close();
+		
+
+		it.add(i);
+		
+		Purchase pur = new Purchase(user, it);
+		
+		PurchaseDTO dto = PurchaseMapper.toDTO(pur);
+				
+		Response response = client
+				.target(PURCHASE_WEB_SERVICE_URI).request()
+				.post(Entity.xml(dto));
+				
+		if (response.getStatus() != 201) {
+			fail("Failed to create new purchase");
+		}
+		
+		String location = response.getLocation().toString();
+		response.close();
+		
+
+		// Check entry was created
+		PurchaseDTO FromService = client.target(location).request()
+				.accept("application/xml").get(PurchaseDTO.class);
+		
+		// Check purchase details
+		assertEquals(dto.getBuyer().getId(), FromService.getBuyer().getId());
+		assertEquals(dto.getItems(), FromService.getItems());
+//		assertEquals(dto.getLastName(), FromService.getLastName());
+		
+	}
+	
+	@Test
+	public void testAddItemToPurchase(){
+		
+	}
+	
 
 }

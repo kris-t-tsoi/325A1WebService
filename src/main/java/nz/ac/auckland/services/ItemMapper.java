@@ -7,7 +7,7 @@ public class ItemMapper {
 
 	
 	public static Item toDomainModel(ItemDTO dto){
-		Item it = new Item(Long.parseLong(dto.getId()), dto.getName(),dto.getPrice());
+		Item it = new Item(dto.getId(), dto.getName(),dto.getPrice());
 		return it;
 	}
 	

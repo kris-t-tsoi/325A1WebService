@@ -6,6 +6,7 @@ import java.util.Set;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlID;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -20,8 +21,8 @@ import nz.ac.auckland.purchaseItems.Item;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class ItemDTO {
 
-	@XmlID
-	private String id;	
+	@XmlAttribute(name="id")
+	private long id;	
 	
 	@XmlElement(name="item_name")
 	private String name;
@@ -39,12 +40,12 @@ public class ItemDTO {
 	}
 	
 	public ItemDTO(long id, String name, double price){
-		this.id = Long.toString(id);
+		this.id = id;
 		this.name = name;
 		this.price = price;
 	}
 	
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 	public String getName() {
