@@ -143,7 +143,7 @@ public class UserResource {
 			throw new WebApplicationException(Response.Status.NOT_FOUND);
 		}			
 
-		NewCookie cookie = new NewCookie("username", user.getUserName());	
+		NewCookie cookie = new NewCookie("id", Long.toString(user.getId()));	
 		
 		em.getTransaction().commit();
 		em.close();
@@ -151,11 +151,27 @@ public class UserResource {
 		return Response.ok().cookie(cookie).build();	
 	}
 	
+	@GET
+	@Path("/login")
+	@Produces("application/xml")
+	public UserDTO getUserFromCookie(@CookieParam("id") Cookie cookie) {
+		EntityManager em = entityManagerFactory.createEntityManager();
+		em.getTransaction().begin();
+		System.err.println("in");
+		System.err.println("value is "+cookie.getValue());
+    	User user = em.find(User.class,Long.parseLong(cookie.getValue()));
+    	System.err.println("id of user: "+user.getId());
+        return UserMapper.toDTO(user);
+	  
+	}
+	
+	
+	
 	
 	@PUT
-	@Path("/{id}")
+	@Path("/{id}/update")
 	@Consumes("application/xml")
-	public Response updateUser(@PathParam("id") long id, User user) {	
+	public Response updateUser(@PathParam("id") int id, User user) {	
 		EntityManager em = entityManagerFactory.createEntityManager();
 		em.getTransaction().begin();
 		

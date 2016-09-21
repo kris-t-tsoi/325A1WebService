@@ -2,6 +2,12 @@ package nz.ac.auckland.tests.userDetail;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
@@ -13,7 +19,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import nz.ac.auckland.dto.AddressDTO;
+import nz.ac.auckland.dto.CategoryDTO;
+import nz.ac.auckland.dto.ItemDTO;
+import nz.ac.auckland.dto.PurchaseDTO;
 import nz.ac.auckland.dto.UserDTO;
+import nz.ac.auckland.purchaseItems.Category;
+import nz.ac.auckland.purchaseItems.Item;
+import nz.ac.auckland.purchaseItems.Purchase;
+import nz.ac.auckland.services.CategoryMapper;
+import nz.ac.auckland.services.ItemMapper;
+import nz.ac.auckland.services.PurchaseMapper;
+import nz.ac.auckland.services.UserMapper;
 
 public class UserTest {
 	
@@ -95,7 +111,16 @@ public class UserTest {
 		Response cookieResponse = client.target(location + "/cookie").request().get();
 		
 		assertEquals( 200,cookieResponse.getStatus());
-
+				
+		Map<String, NewCookie> cookieMap = cookieResponse.getCookies();
+		cookieResponse.close();
+		
+	
+		NewCookie cookie = cookieMap.get("id");
+		System.err.println("cookie name "+cookie.getName());
+		System.err.println("cookie value "+cookie.getValue());
+		UserDTO cookieUser = client.target(USER_WEB_SERVICE_URI + "/login").request().cookie(cookie).get(UserDTO.class);
+		assertEquals( fromService.getId(),cookieUser.getId());
 	}
 	
 	
@@ -224,8 +249,6 @@ public class UserTest {
 //		}
 //		
 //	}
-//	
-//	
 //	
 //	
 //		
